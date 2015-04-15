@@ -1,0 +1,30 @@
+<template name="list_panel">
+  <div class="panel panel-default list_panel">
+    <div class="panel-heading">{{heading}}
+      <span class="icon_button right_button add_item"><span class="glyphicon glyphicon-plus"></span> Add</span>
+    </div>
+    <div class="panel-body">
+      {{#each items}}
+        {{# list_panel_row}}
+          {{> UI.contentBlock this}}
+        {{/ list_panel_row}}
+      {{/each}}
+    </div>
+  </div>
+</template>
+
+<template name="list_panel_row">
+  <div class="row {{selected}}">
+    <span class="description">
+      {{> UI.contentBlock this }}
+    </span>
+    <span class="commands">
+      <span class="selected_row_buttons">
+        <span class="icon_button edit_item"><span class="glyphicon glyphicon-pencil"></span><br/>Edit</span>
+        {{#if command}}
+          <span class="icon_button command_button"><span class="glyphicon glyphicon-chevron-right"></span><br/>{{command}}</span>
+        {{/if}}
+      </span>
+    </span>
+  </div>
+</template>

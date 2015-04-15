@@ -1,0 +1,36 @@
+@import "lib/bootstrap/style/bootstrap.import.less";
+@import "component/list_panel/list_panel.import.less";
+@import "component/dialog_box/dialog_box.import.less";
+@import "template/navigation/navigation.import.less";
+@import "template/carousel/carousel.import.less";
+@import "template/grade_table/grade_table.import.less";
+
+
+.FixedHeader_Cloned {
+    background-color: white;
+}
+
+
+.main {
+    .container;
+    
+    margin-top: 60px;
+    
+    @media (min-width: 768px) {
+        margin-top: 80px;
+    }
+}
+
+.info {
+    .make-sm-column(6);
+}
+
+.breadcrumb{
+  li{
+    cursor: pointer;
+  }
+  
+  li.active{
+    cursor: default
+  }
+}

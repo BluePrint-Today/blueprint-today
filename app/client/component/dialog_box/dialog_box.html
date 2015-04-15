@@ -1,0 +1,30 @@
+<template name="dialog_box">
+  <div id="{{id}}" class="modal fade dialog_box">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">{{dialog_title}}</h4>
+        </div>
+        <div class="modal-body">
+          {{#if dialog_title}}
+            {{#with data }}
+              {{> UI.contentBlock this }}
+            {{/with}}
+          {{/if}}
+        </div>
+        <div class="modal-footer">
+          {{#if showDelete}}
+          <button type="button" class="btn btn-warning left_button dialog_box_delete" data-dismiss="modal">Delete</button>
+          {{/if}}
+          {{#if showDone}}
+            <button type="button" class="btn btn-primary btn-default dialog_box_cancel" data-dismiss="modal">Done</button>
+          {{else}}
+            <button type="button" class="btn btn-default dialog_box_cancel" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-primary dialog_box_save">Save</button>
+          {{/if}}
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal --> 
+</template>

@@ -1,0 +1,67 @@
+
+.icon_button{
+    text-align: center;
+    font-size: small;
+    display: inline-block;
+    margin-right: 10px;
+    padding-top: 3px;
+    
+    &:hover{
+        color: white;
+    }
+}
+
+.list_panel {
+    font-size: larger;
+    .panel-heading{
+        cursor: default;
+        
+        .right_button {
+            float: right;
+            cursor: pointer;
+        }
+     }
+    .row {
+        .make-row();
+        cursor: pointer;
+        overflow: hidden;
+        white-space: nowrap;
+        
+        .description{
+            .make-xs-column(12);
+            margin-right: -100px;
+            
+            .title {
+                .make-xs-column(8);
+                display: inline-table;
+            }
+            .info {
+                .make-xs-column(4);
+                text-align: right;
+                font-size: smaller;
+            }
+        }
+        .commands{
+            position: relative;
+            float: right;
+            background-color: lightgray;
+            border-left: darkgray solid 1px;
+            padding-left: 10px;
+            text-align: right;
+        }
+    }
+    .selected_row_buttons{
+        display: none;
+    }
+    .selected{
+        background-color: lightgray;
+        
+        .selected_row_buttons{
+            display: inline-block;
+        }
+        .commands{
+            background-color: lightgray;
+        }
+    }
+}
+

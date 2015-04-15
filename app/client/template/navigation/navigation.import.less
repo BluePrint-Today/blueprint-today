@@ -1,0 +1,41 @@
+
+button.btn-Google{
+    background-color: lightgray;
+    color: gray;
+    background-image: url('/g_plus.png');
+    background-repeat: no-repeat;
+    background-position-x: 10px;
+}
+
+.navbar-wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 20;
+    
+    .container{
+        padding-right: 0;
+        padding-left: 0;
+    }
+    
+    .navbar{
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+    
+    @media (min-width: 768px) {
+        margin-top: 20px;
+        
+        .container{
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+        
+        .navbar {
+            border-radius: 4px;
+            padding-right: 0;
+            padding-left: 0;
+        }
+    }
+}

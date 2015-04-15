@@ -1,0 +1,13 @@
+
+<template name="student_list">
+  {{# list_panel heading="Student" items=items }}
+    {{name}}
+  {{/ list_panel}}
+  
+  {{# dialog_box id="student_list_dialog" heading="Student" data=selectedItem }}
+    <div class="form-group">
+      <label>Name</label>
+      <input id="studentName" class="autoFocus" type="text" value="{{name}}"/>
+    </div>
+  {{/ dialog_box}}
+</template>
