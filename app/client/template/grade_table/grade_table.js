@@ -26,13 +26,10 @@ Template.grade_table.rendered = function(){
   this.picker.set('select', new Date())
 }
 
-function gradeRenderer(instance, td, row, col, prop, value, cellProperties) {
+function gradeRenderer(instance, td, row, col, prop, gradeValue, cellProperties) {
   var escaped =  ""
-  if(value){
-    if(value.text)
-      escaped = Handsontable.helper.stringify(value.text);
-    else if(typeof value === "string")
-      escaped =  Handsontable.helper.stringify(value);
+  if(gradeValue && gradeValue.value){
+    escaped = Handsontable.helper.stringify(gradeValue.value);
   }
   td.innerHTML = escaped;
   return td;
@@ -41,10 +38,15 @@ function gradeRenderer(instance, td, row, col, prop, value, cellProperties) {
 var gradeEditor = Handsontable.editors.TextEditor.prototype.extend()
 gradeEditor.prototype.setValue = function(value){
   var text = ""
+  // Get what they originally typed in not the calculated value
   if(this.originalValue && this.originalValue.text){
     text = this.originalValue.text
   }
   Handsontable.editors.TextEditor.prototype.setValue.apply(this, [text])
+}
+gradeEditor.prototype.getValue = function(){
+  var textValue = Handsontable.editors.TextEditor.prototype.getValue.apply(this, [])
+  return Course.calculateGradeData(textValue)
 }
 
 Template.grade_table.helpers({
@@ -120,7 +122,7 @@ function updateData(change, source){
         }else{
           var studentId = data.studentId
           // Update course day student grade
-          Course.setGrade(courseId, studentId, week, day, newVal)
+          Course.setGrade(courseId, studentId, week, day, newVal.text)
         }
         
       }
