@@ -25,14 +25,15 @@ Meteor.methods({
   },
   
   saveCourseGrade: function(courseId, studentId, dayNumber, gradeText){
+    var gradeData = Course.calculateGradeData(gradeText)
     checkLogIn(this)
-    var field = studentId + '_gradeText'
+    var field = studentId
     var obj = {}
-    obj['days.$.' + field] = gradeText
+    obj['days.$.' + field] = gradeData
     var count = Course.update({_id: courseId, userId: this.userId, 'days.dayNumber': dayNumber}, {$set: obj })
     if(count == 0){
       obj = {dayNumber: dayNumber}
-      obj[field] = gradeText
+      obj[field] = gradeData
       Course.update({_id: courseId, userId: this.userId}, {$push: {'days': obj } })
     }
   },
@@ -103,15 +104,36 @@ Course.getSchedule = function(termId, week){
   
   return schedule
 }
+
+Course.calculateGradeData = function(gradeText){
+     var gradeValue = null
+    var vals = gradeText.split('/')
+    if(vals.length == 2){
+      var v1 = Number(vals[0])
+      var v2 = Number(vals[1])
+      gradeValue = (v1 / v2) * 100
+    }else if(gradeText.trim() != ''){
+      gradeValue = Number(gradeText)
+    }else{
+      gradeValue = null
+    }
+    if(gradeValue != null && !isFinite(gradeValue)){
+      gradeText = ""
+      gradeValue = null
+    }
+      
+    var gradeData = {text: gradeText, value: gradeValue}
+    return gradeData
+}
  
 function getGrade(days, student, week, dayOfWeek){
   for(var i = 0; i < days.length; i++){
     var courseDay = days[i]
     if(courseDay.dayNumber == +dayOfWeek + ((week - 1) * 7)){
-      return courseDay[student._id + '_gradeText'] || ""
+      return courseDay[student._id] || {}
     }
   }
-  return ""
+  return {}
 }
 
 function getDescription(days, week, dayOfWeek){
