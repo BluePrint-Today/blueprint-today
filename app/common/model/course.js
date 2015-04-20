@@ -25,14 +25,16 @@ Meteor.methods({
   },
   
   saveCourseGrade: function(courseId, studentId, dayNumber, gradeText){
+    var gradeValue = gradeText
+    var gradeData = {text: gradeText, value: gradeValue}
     checkLogIn(this)
-    var field = studentId + '_gradeText'
+    var field = studentId
     var obj = {}
-    obj['days.$.' + field] = gradeText
+    obj['days.$.' + field] = gradeData
     var count = Course.update({_id: courseId, userId: this.userId, 'days.dayNumber': dayNumber}, {$set: obj })
     if(count == 0){
       obj = {dayNumber: dayNumber}
-      obj[field] = gradeText
+      obj[field] = gradeData
       Course.update({_id: courseId, userId: this.userId}, {$push: {'days': obj } })
     }
   },
@@ -108,10 +110,10 @@ function getGrade(days, student, week, dayOfWeek){
   for(var i = 0; i < days.length; i++){
     var courseDay = days[i]
     if(courseDay.dayNumber == +dayOfWeek + ((week - 1) * 7)){
-      return courseDay[student._id + '_gradeText'] || ""
+      return courseDay[student._id] || {}
     }
   }
-  return ""
+  return {}
 }
 
 function getDescription(days, week, dayOfWeek){

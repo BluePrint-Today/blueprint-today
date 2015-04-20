@@ -26,6 +26,27 @@ Template.grade_table.rendered = function(){
   this.picker.set('select', new Date())
 }
 
+function gradeRenderer(instance, td, row, col, prop, value, cellProperties) {
+  var escaped =  ""
+  if(value){
+    if(value.text)
+      escaped = Handsontable.helper.stringify(value.text);
+    else if(typeof value === "string")
+      escaped =  Handsontable.helper.stringify(value);
+  }
+  td.innerHTML = escaped;
+  return td;
+}
+
+var gradeEditor = Handsontable.editors.TextEditor.prototype.extend()
+gradeEditor.prototype.setValue = function(value){
+  var text = ""
+  if(this.originalValue && this.originalValue.text){
+    text = this.originalValue.text
+  }
+  Handsontable.editors.TextEditor.prototype.setValue.apply(this, [text])
+}
+
 Template.grade_table.helpers({
   data: function(){
     var templateInstance = Template.instance()
@@ -42,7 +63,14 @@ Template.grade_table.helpers({
       fixedColumnsLeft: 1,
       colWidths: [200, 60, 200, 60, 200, 60, 200, 60, 200, 60, 200, 60, 200, 60, 200],
       colHeaders: ['<input id="selectWeek" readonly/>', '', 'Monday', '', 'Tuesday', '', 'Wednesday', '', 'Thursday', '', 'Friday', '', 'Saturday', '', 'Sunday'],
-      columns: [ {data: 'title'}, {data: 'g1'}, {data: 'd1'}, {data: 'g2'}, {data: 'd2'}, {data: 'g3'}, {data: 'd3'}, {data: 'g4'}, {data: 'd4'}, {data: 'g5'}, {data: 'd5'}, {data: 'g6'}, {data: 'd6'}, {data: 'g7'}, {data: 'd7'} ],
+      columns: [ {data: 'title'}, 
+                {data: 'g1', renderer: gradeRenderer, editor: gradeEditor}, {data: 'd1'}, 
+                {data: 'g2', renderer: gradeRenderer, editor: gradeEditor}, {data: 'd2'}, 
+                {data: 'g3', renderer: gradeRenderer, editor: gradeEditor}, {data: 'd3'}, 
+                {data: 'g4', renderer: gradeRenderer, editor: gradeEditor}, {data: 'd4'}, 
+                {data: 'g5', renderer: gradeRenderer, editor: gradeEditor}, {data: 'd5'}, 
+                {data: 'g6', renderer: gradeRenderer, editor: gradeEditor}, {data: 'd6'}, 
+                {data: 'g7', renderer: gradeRenderer, editor: gradeEditor}, {data: 'd7'} ],
       
       afterChange: updateData,
       afterRender: updateWeekDisplay
