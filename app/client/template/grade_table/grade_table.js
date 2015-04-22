@@ -26,29 +26,6 @@ Template.grade_table.rendered = function(){
   this.picker.set('select', new Date())
 }
 
-function gradeRenderer(instance, td, row, col, prop, gradeValue, cellProperties) {
-  var escaped =  ""
-  if(gradeValue && gradeValue.value){
-    escaped = Handsontable.helper.stringify(gradeValue.value);
-  }
-  td.innerHTML = escaped;
-  return td;
-}
-
-var gradeEditor = Handsontable.editors.TextEditor.prototype.extend()
-gradeEditor.prototype.setValue = function(value){
-  var text = ""
-  // Get what they originally typed in not the calculated value
-  if(this.originalValue && this.originalValue.text){
-    text = this.originalValue.text
-  }
-  Handsontable.editors.TextEditor.prototype.setValue.apply(this, [text])
-}
-gradeEditor.prototype.getValue = function(){
-  var textValue = Handsontable.editors.TextEditor.prototype.getValue.apply(this, [])
-  return Course.calculateGradeData(textValue)
-}
-
 Template.grade_table.helpers({
   data: function(){
     var templateInstance = Template.instance()
@@ -64,15 +41,22 @@ Template.grade_table.helpers({
     return {
       fixedColumnsLeft: 1,
       colWidths: [200, 60, 200, 60, 200, 60, 200, 60, 200, 60, 200, 60, 200, 60, 200],
-      colHeaders: ['<input id="selectWeek" readonly/>', '', 'Monday', '', 'Tuesday', '', 'Wednesday', '', 'Thursday', '', 'Friday', '', 'Saturday', '', 'Sunday'],
+      colHeaders: ['<input id="selectWeek" readonly/>', 
+                   '', 'Monday', 
+                   '', 'Tuesday', 
+                   '', 'Wednesday', 
+                   '', 'Thursday', 
+                   '', 'Friday', 
+                   '', 'Saturday', 
+                   '', 'Sunday'],
       columns: [ {data: 'title'}, 
-                {data: 'g1', renderer: gradeRenderer, editor: gradeEditor}, {data: 'd1'}, 
-                {data: 'g2', renderer: gradeRenderer, editor: gradeEditor}, {data: 'd2'}, 
-                {data: 'g3', renderer: gradeRenderer, editor: gradeEditor}, {data: 'd3'}, 
-                {data: 'g4', renderer: gradeRenderer, editor: gradeEditor}, {data: 'd4'}, 
-                {data: 'g5', renderer: gradeRenderer, editor: gradeEditor}, {data: 'd5'}, 
-                {data: 'g6', renderer: gradeRenderer, editor: gradeEditor}, {data: 'd6'}, 
-                {data: 'g7', renderer: gradeRenderer, editor: gradeEditor}, {data: 'd7'} ],
+                {data: 'g1', type: 'grade'}, {data: 'd1', type: 'description'}, 
+                {data: 'g2', type: 'grade'}, {data: 'd2', type: 'description'}, 
+                {data: 'g3', type: 'grade'}, {data: 'd3', type: 'description'}, 
+                {data: 'g4', type: 'grade'}, {data: 'd4', type: 'description'}, 
+                {data: 'g5', type: 'grade'}, {data: 'd5', type: 'description'}, 
+                {data: 'g6', type: 'grade'}, {data: 'd6', type: 'description'}, 
+                {data: 'g7', type: 'grade'}, {data: 'd7', type: 'description'} ],
       
       afterChange: updateData,
       afterRender: updateWeekDisplay

@@ -17,11 +17,13 @@ Meteor.methods({
       return Course.insert({termId: course.termId, userId: this.userId, title: course.title, students: course.students, days: []})
   },
   
-  saveCourseDescription: function(courseId, dayNumber, description){
+  saveCourseDescription: function(courseId, dayNumber, descriptionInfo){
+    var description = descriptionInfo.description
+    var gradeType = descriptionInfo.gradeType
     checkLogIn(this)
-    var count = Course.update({_id: courseId, userId: this.userId, 'days.dayNumber': dayNumber}, {$set: {'days.$.description': description} })
+    var count = Course.update({_id: courseId, userId: this.userId, 'days.dayNumber': dayNumber}, {$set: {'days.$.description': description, 'days.$.gradeType': gradeType} })
     if(count == 0)
-      Course.update({_id: courseId, userId: this.userId}, {$push: {'days': {dayNumber: dayNumber, description: description} } })
+      Course.update({_id: courseId, userId: this.userId}, {$push: {'days': {dayNumber: dayNumber, description: description, 'days.$.gradeType': gradeType} } })
   },
   
   saveCourseGrade: function(courseId, studentId, dayNumber, gradeText){
@@ -47,9 +49,9 @@ Meteor.methods({
   
 })
 
-Course.setDescription = function(courseId, week, dow, description){
+Course.setDescription = function(courseId, week, dow, descriptionInfo){
   var dayNumber = +dow + ((week - 1) * 7)
-  Meteor.call('saveCourseDescription', courseId, dayNumber, description)
+  Meteor.call('saveCourseDescription', courseId, dayNumber, descriptionInfo)
 }
 
 Course.setGrade = function(courseId, studentId, week, dow, gradeText){
@@ -140,8 +142,10 @@ function getDescription(days, week, dayOfWeek){
   for(var i = 0; i < days.length; i++){
     var courseDay = days[i]
     if(courseDay.dayNumber == +dayOfWeek + ((week - 1) * 7)){
-      return courseDay.description  || ""
+      var desc = courseDay.description  || ""
+      var gType = courseDay.gradeType  || ""
+      return {description: desc, gradeType: gType}
     }
   }
-  return ""
+  return {}
 }
