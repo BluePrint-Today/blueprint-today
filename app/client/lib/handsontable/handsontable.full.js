@@ -16,6 +16,11 @@
 //  helper: {} //helper namespace
 //};
 
+//
+// Changes:
+// Changed TextEditor enter key to get and set TEXTAREA value directly -- Edward M
+// 
+
 Handsontable = function (rootElement, userSettings) {
   userSettings = userSettings || {};
   var instance = new Handsontable.Core(rootElement, userSettings);
@@ -7292,11 +7297,11 @@ Handsontable.helper.pageY = function (event) {
         if ((ctrlDown && !isMultipleSelection) || event.altKey) { //if ctrl+enter or alt+enter, add new line
           if(that.isOpened()){
             var caretPosition = Handsontable.Dom.getCaretPosition(that.TEXTAREA),
-                value = that.getValue();
+                value = that.TEXTAREA.value
 
             var newValue = value.slice(0, caretPosition) + '\n' + value.slice(caretPosition);
 
-            that.setValue(newValue);
+            that.TEXTAREA.value = newValue
 
             Handsontable.Dom.setCaretPosition(that.TEXTAREA, caretPosition + 1);
 
