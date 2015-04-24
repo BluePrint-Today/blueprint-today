@@ -3,7 +3,7 @@
 function gradeRenderer(instance, td, row, col, prop, gradeValue, cellProperties) {
   var escaped =  ""
   if(gradeValue && gradeValue.value){
-    escaped = Handsontable.helper.stringify(gradeValue.value)
+    escaped = Handsontable.helper.stringify(gradeValue.value.toFixed())
   }
   td.innerHTML = escaped
   return td
