@@ -6,7 +6,4 @@
 
 Meteor.startup(function () {
   
-  // Setup login service accounts
-  Meteor.appLibs.setupAccounts()
-  
 })

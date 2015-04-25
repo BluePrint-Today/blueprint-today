@@ -1,16 +1,19 @@
 
 <template name="Main">
+  
+  <!-- Main splash section -->
   <div id="splash" class="banner">
     <div class="static"></div>
      <div class="caption">
        <h1><span>relax...</span> <span style="display:inline-block">and stay on track</span></h1>
         <p>Easily schedule and track grades for homeschool courses</p>
-        <p style="margin-top:100px">
+        <p style="margin-top:80px">
           <a href="/#features"><i class="glyphicon glyphicon-arrow-down" style="font-size:48px; color:gray"></i></a>
        </p>
      </div>
   </div>
   
+  <!-- Features section -->
   <div id="features" class="about container">
     <h2>BluePrint Today Features</h2>
     
@@ -50,7 +53,7 @@
       <i class="glyphicon glyphicon-transfer"></i>
       <h3>Share</h3>
       <p>
-        Export course schedules and share with friends.  Import schedules from others to save time. **Coming Soon**
+        Export course schedules and share with friends.  **Coming Soon**
       </p>
     </div>
         
@@ -63,16 +66,65 @@
     </div>
   </div>
     
+  <!-- Get started section -->
    <div id="about" class="banner">
      <div class="caption">
        <h3><span>Get started now</span></h3>
         <p>The basic version is free to use so there is no reason to wait.</p>
         <p style="margin-top:100px">
-          <button>
+          <button id="sign_up">
             Signup Now
           </button>
        </p>
      </div>
+  </div>
+  
+   <!-- FAQ section -->
+   <div id="faq" class="about container">
+    <h2>Frequently Asked Questions</h2>
+     
+     <div class="question">
+       <h4>How do I enter grades?</h4>
+       <p>
+         In the table cell before the days course description you can enter either a percentage like 90 
+         or you can enter a fraction of correct over total like 48/50 and the percentage will be calculated.
+       </p>
+     </div>
+      
+     <div class="question">
+       <h4>What if something doesn't need a grade?</h4>
+       <p>
+         If you have a task like "Read chapter 1" but there is no homework or quiz for that, just leave the grade
+         blank.  A blank grade doesn't mean 0 it means no grade and is not used to calculate the final course total grade.
+       </p>
+     </div>
+       
+     <div class="question">
+       <h4>Can I have weighted grades?</h4>
+       <p>
+         When you enter a description for a day there is a dropdown above the field.  You can choose from default (suitable for homework or general work),
+         quizes, and tests.  If you only use default for everything then everything will have the same weight and all grades will be averaged together.
+         If you use default and another like test then all default grades will be averaged together and account for 50% of the final grade, all
+         test grades will be averaged together and account for the other half of the final grade.  If you use all three grade types then each type
+         will account for 1/3 of the final grade.
+       </p>
+     </div>
+      
+     <div class="question">
+       <h4>Can I assign different weight values to each grade type?</h4>
+       <p>
+         To keep things simplified and quick to use each grade type is fixed to have equal weight.
+       </p>
+     </div>
+       
+     <div class="question">
+       <h4>What is the difference between the free and the paid version?</h4>
+       <p>
+         At the moment there is only the free version.  In the future the paid version will allow you to import course schedules
+         that others have exported and shared with you.
+       </p>
+     </div>
+      
   </div>
   
 </template>
