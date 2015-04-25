@@ -13,3 +13,5 @@ ian:accounts-ui-bootstrap-3
 reactive-var
 meteorhacks:cluster
 cwohlman:pickadate
+iron:router
+okgrow:iron-router-autoscroll
