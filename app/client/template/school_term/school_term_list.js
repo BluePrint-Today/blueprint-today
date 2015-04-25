@@ -36,7 +36,7 @@ Template.school_term_list.events({
   
   'click .command_button': function(){
     Session.set('current_term', Session.get('list_panel'))
-    Navigate('Gradebook')
+    Router.go('/gradebook')
   },
   
   'click .dialog_box_save': function(event){

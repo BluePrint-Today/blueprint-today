@@ -19,3 +19,54 @@
     .make-sm-column(6);
 }
 
+
+#splash .static{
+   background-image: url("/images/road.jpg");
+}
+
+.banner {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background-size: cover;
+  
+  .static{
+     background-size: cover;
+     width:100%;
+     height:100%;
+     position:fixed;
+  }
+  
+  &:after {
+     position: absolute;
+     top: 0;
+     left: 0;
+     right: 0;
+     bottom: 0;
+     background-color: rgba(0, 0, 0, 0.55);
+     content: "";
+  }
+  
+  .caption {
+     position: absolute;
+     top: 40%;
+     width: 100%;
+     z-index: 2;
+     color: white;
+     text-align: center;
+    
+     h1{
+       font-size:36pt;
+     }
+     p{
+       font-size:16pt;
+     }
+  }
+}
+
+.about {
+	position: absolute;
+	width: 100%;
+	min-height: 300px;
+	background-color: white
+}
