@@ -2,7 +2,6 @@
 <template name="mainNavigation">
 
   <div class="navbar-wrapper">
-  <div class="container">
   
   <div class="navbar navbar-default navbar-inverse navbar-fixed-top" style="margin-bottom: 0px" role="navigation">
     <div class="navbar-header">
@@ -15,19 +14,21 @@
         </button>
     </div>
     <div class="navbar-collapse collapse">
-        <ul class="nav navbar-nav"><li><a href="/#features">Features</a></li></ul>
-        <ul class="nav navbar-nav"><li><a href="/#about">Get Started</a></li></ul>
-        <ul class="nav navbar-nav"><li><a href="/#faq">Questions</a></li></ul>
+        <ul class="nav navbar-nav">
+          <li><a href="/#features">Features</a></li>
+          <li><a href="/#about">Get Started</a></li>
+          <li><a href="/#faq">Questions</a></li>
         {{#if currentUser}}
-          <ul class="nav navbar-nav"><li><a href="home">Home</a></li></ul>
+          <li><a href="home">Home</a></li>
         {{/if}}
+        </ul>
         <ul class="nav navbar-nav navbar-right">
             {{> loginButtons }}
         </ul>
     </div>
-  </div>
       
   </div>
+    
   </div>
   
 </template>
