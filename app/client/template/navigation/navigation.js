@@ -22,3 +22,19 @@ Router.onBeforeAction(function () {
     this.next()
   }
 }, {except: ["Main"]})
+
+
+Template.mainNavigation.events({
+  'click a[href*=#]': function(e){
+    var link = e.currentTarget
+    if (location.pathname.replace(/^\//,'') == link.pathname.replace(/^\//,'') && location.hostname == link.hostname) {
+      var target = $(link.hash);
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top
+        }, 1000);
+        return false;
+      }
+    }
+  }
+})
