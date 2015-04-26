@@ -67,4 +67,12 @@ underscore@1.0.2
 url@1.0.3
 webapp@1.1.5
 webapp-hashing@1.0.2
-iron:router@1.0.5
+iron:router@1.0.7
+iron:controller@1.0.7
+iron:core@1.0.7
+iron:dynamic-template@1.0.7
+iron:layout@1.0.7
+iron:location@1.0.7
+iron:middleware-stack@1.0.7
+iron:url@1.0.7
+okgrow:iron-router-autoscroll@0.0.8

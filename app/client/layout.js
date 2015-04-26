@@ -8,4 +8,10 @@ Meteor.startup(function () {
     $(document).on('click', '.navbar-collapse.collapse.in button:not(.navbar-toggle)', function() {
         $(this).closest(".navbar-collapse").collapse('hide');
     })
+    
+    Tracker.autorun(function(){
+      if(Meteor.userId()){
+        Router.go("/home")
+      }
+    })
 })
