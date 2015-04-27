@@ -1,3 +1,32 @@
+Template.Main.rendered = function(){
+   var sections =  $("div[data-nav]")
+   var tabs = {}
+   this.sections = sections
+   this.navtabs = tabs
+   sections.each(function(){
+     var tab = $('#' + this.dataset['nav'])
+     tabs[this.id] = tab
+   })
+	$(window).bind("scroll.nav", function(){
+     sections.each(function(){
+       var position = window.scrollY + 200
+       if(this.offsetTop < position && (this.offsetTop + this.offsetHeight) > position){
+         tabs[this.id].addClass('active')
+       }else{
+         tabs[this.id].removeClass('active')
+       }
+     })
+   })  
+}
+
+Template.Main.destroyed = function(){
+	$(window).unbind("scroll.nav")
+   var tabs = this.navtabs
+   this.sections.each(function(){
+      tabs[this.id].removeClass('active')
+   })
+}
+
 Template.Main.events({
   'click #sign_up': function(e){
     $('#login-dropdown-list').addClass('open')
