@@ -59,7 +59,8 @@ Template.grade_table.helpers({
                 {data: 'g7', type: 'grade'}, {data: 'd7', type: 'description'} ],
       
       afterChange: updateData,
-      afterRender: updateWeekDisplay
+      afterRender: updateWeekDisplay,
+      afterScrollVertically: scrollHeaderFix
     }
   }
 })
@@ -111,5 +112,24 @@ function updateData(change, source){
         
       }
     }               
+  }
+}
+
+function scrollHeaderFix(){
+  var p = $('#table-container').offset().top
+  var h = $('.navbar').outerHeight()
+  var offset = p - h
+  var y = window.scrollY
+  var t = $('.ht_clone_top')
+  var c = $('.ht_clone_corner')
+  if(y>offset){
+    y = y - offset
+    if(y > h)
+      y = h
+    t.css({top: y + 'px'})
+    c.css({top: y + 'px'})
+  }else{
+    t.css({top: '0px'})
+    c.css({top: '0px'})
   }
 }

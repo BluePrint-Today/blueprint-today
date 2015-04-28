@@ -2,34 +2,32 @@
 <template name="mainNavigation">
 
   <div class="navbar-wrapper">
+    <div class="navbar navbar-default navbar-inverse navbar-fixed-top" style="margin-bottom: 0px" role="navigation">
+      <div class="navbar-header">
+          <a class="navbar-brand" href="/#splash">BluePrint</a>
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+      </div>
   
-  <div class="navbar navbar-default navbar-inverse navbar-fixed-top" style="margin-bottom: 0px" role="navigation">
-    <div class="navbar-header">
-        <a class="navbar-brand" href="/#splash">BluePrint</a>
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
+       <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li id="featuresTab"><a href="/#features">Features</a></li>
+            <li id="aboutTab"><a href="/#about">Get Started</a></li>
+            <li id="faqTab"><a href="/#faq">Questions</a></li>
+          {{#if currentUser}}
+            <li id="homeTab"><a href="home">Home</a></li>
+          {{/if}}
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+              {{> loginButtons }}
+          </ul>
+      </div>
     </div>
-    <div class="navbar-collapse collapse">
-        <ul class="nav navbar-nav">
-          <li id="featuresTab"><a href="/#features">Features</a></li>
-          <li id="aboutTab"><a href="/#about">Get Started</a></li>
-          <li id="faqTab"><a href="/#faq">Questions</a></li>
-        {{#if currentUser}}
-          <li id="homeTab"><a href="home">Home</a></li>
-        {{/if}}
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-            {{> loginButtons }}
-        </ul>
-    </div>
-      
   </div>
-    
-  </div>
-  
+
 </template>
   
