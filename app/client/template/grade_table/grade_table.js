@@ -39,6 +39,8 @@ Template.grade_table.helpers({
   
   options: function(){
     return {
+      renderAllRows: true,
+      viewportColumnRenderingOffset: 14,
       fixedColumnsLeft: 1,
       colWidths: [200, 60, 200, 60, 200, 60, 200, 60, 200, 60, 200, 60, 200, 60, 200],
       colHeaders: ['<input id="selectWeek" readonly/>', 
