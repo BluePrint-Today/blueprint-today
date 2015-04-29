@@ -11,6 +11,7 @@ Meteor.startup(function () {
     
     Tracker.autorun(function(){
       if(Meteor.userId()){
+        $('.navbar-collapse').collapse('hide')
         Router.go("/home")
       }
     })
