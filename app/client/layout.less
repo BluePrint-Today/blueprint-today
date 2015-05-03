@@ -4,6 +4,402 @@
 @import "template/navigation/navigation.import.less";
 @import "template/grade_table/grade_table.import.less";
 
+/* -------------------------
+Imports
+--------------------------*/
+@import url("http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic|Raleway:500,600,700");
+
+/* -------------------------
+Mixins
+--------------------------*/
+
+
+/* -------------------------
+Variables
+--------------------------*/
+@primary-color  :   #7BA29E;
+@secondary-color:   #B39A6A;
+@text-color     :   #4C4C4B;
+@bg-color       :   #B5BAB4;
+
+/* -------------------------
+Styles
+--------------------------*/
+
+html {
+  font-size: 100%;
+}
+
+body {
+  background: @bg-color;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 16px;
+  color: @text-color;
+  line-height: 25px;
+  text-align: center;
+  overflow-x: hidden !important;
+  margin: auto !important;
+}
+
+a {
+  color: @primary-color;
+  text-decoration: none;
+  -webkit-transition: all ease 0.25s;
+  transition: all ease 0.25s;
+  &:hover {
+    color: lighten(@primary-color, 5%);
+    text-decoration: underline;
+  }
+  &:active {
+    color: darken(@primary-color, 5%);
+  }
+  &:focus {
+    outline: inherit;
+    color: inherit;
+  }
+}
+
+.no-decor a {
+  color: #CCC;
+  text-decoration: none;
+  -webkit-transition: all ease 0.25s;
+  transition: all ease 0.25s;
+  &:hover {
+    color: lighten(#CCC, 5%);
+  }
+  &:active {
+    color: darken(#CCC, 5%);
+  }
+  &:focus {
+    outline: inherit;
+    color: inherit;
+  }
+}
+
+strong {
+  font-weight: 700;
+}
+.strong {
+  font-weight: 700;
+}
+
+ul,
+ol {
+  padding-left: 0 !important;
+}
+
+li {
+  list-style: none;
+  display: inline;
+}
+
+
+.colored-line {
+  background: @primary-color;
+  height: 1px;
+  width: 70px;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.colored-text {
+  color: @primary-color !important;
+}
+
+section {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+/* -------------------------
+Typography
+--------------------------*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Raleway', sans-serif;
+  color: #323232;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 2.813rem;
+  line-height: 3.75rem;
+  font-weight: 500;
+}
+
+h2 {
+  font-size: 2.188rem;
+  line-height: 3.125rem;
+  font-weight: 500;
+}
+
+h3 {
+  font-size: 1.5rem;
+  line-height: 2.375rem;
+  font-weight: 600;
+}
+
+h4 {
+  font-size: 1.25rem;
+  line-height: 2rem;
+  font-weight: 600;
+}
+
+h5 {
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 700;
+}
+
+h6 {
+  font-size: 16px;
+  line-height: 25px;
+  font-weight: 700;
+}
+
+/* -------------------------
+Buttons
+--------------------------*/
+.btn:focus,
+.btn:active,
+.btn,
+.open .dropdown-toggle.btn {
+  outline: inherit;
+  border-color: inherit;
+}
+
+.standard-button {
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: 3px;
+  padding: 15px 30px;
+  border: 0;
+  margin: 5px;
+  line-height: inherit;
+  -webkit-transition: all ease 0.25s;
+  transition: all ease 0.25s;
+}
+
+.standard-button {
+  background: @primary-color;
+  color: #ffffff;
+  text-decoration: none;
+  -webkit-transition: all ease 0.25s;
+  transition: all ease 0.25s;
+  &:hover {
+    background: lighten(@primary-color, 5%);
+    color: #ffffff;
+  }
+}
+
+.secondary-button-white {
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: 3px;
+  padding: 14px 30px;
+  border: 0;
+  margin: 5px;
+  border: 1px solid #727272;
+  color: #ffffff;
+  background: transparent;
+  line-height: inherit;
+  border: 1px solid rgba(255,255,255,0.5);
+  -webkit-transition: all ease 0.25s;
+  transition: all ease 0.25s;
+}
+
+.secondary-button-white:hover {
+    border: 1px solid rgba(255,255,255,1);
+    color: #ffffff;
+}
+
+/* -------------------------
+Header/Splash
+--------------------------*/
+
+header {
+  background: url("http://placehold.it/1920x1080") no-repeat center top fixed;
+  -webkit-background-size: cover;
+  background-size: cover;
+  width:100%;
+  height:100%;
+}
+
+.color-overlay {
+  background: rgba(123,162,158, 0.6);
+}
+
+.navigation-header {
+  padding-top: 47px;
+  padding-bottom: 30px;
+}
+
+.intro-section {
+  margin-top: 100px;
+  margin-bottom: 137px;
+}
+
+.intro {
+  color: #ffffff;
+}
+
+.intro-section .heading {
+    font-size: 20px;
+    padding-right: 10%;
+    padding-left: 10%;
+    color: #ffffff;
+    margin-top: 40px;
+    line-height: 30px;
+}
+
+.button-container {
+    margin-top: 75px;
+    margin-bottom: 25px;
+}
+
+.pull-down a{
+  position: absolute;
+  font-size: 28px;
+  color: @primary-color;
+  bottom: 1em;
+  left: 0;
+  right: 0;
+  margin-top: 0;
+  &:hover{
+    color: lighten(@primary-color, 5%);
+  }
+}
+
+
+/* -------------------------
+Features
+--------------------------*/
+.features {
+  margin-top: 35px;
+}
+
+.feature {
+  margin-top: 40px;
+  margin-bottom: 35px;
+}
+
+.feature .icon {
+  font-size: 50px;
+  margin-bottom: 30px;
+  color: @secondary-color;
+}
+
+.feature h4 {
+  margin-bottom: 10px;
+}
+
+/* -------------------------
+Get Started
+--------------------------*/
+.get-started-section {
+  background: url("http://placehold.it/1920x1080") no-repeat center fixed;
+  -webkit-background-size: cover;
+  background-size: cover;
+}
+
+.get-started h4 {
+  color: @text-color;
+}
+
+.get-started h2 {
+  color: @text-color;
+  font-weight: 700;
+  margin-top: 15px;
+  margin-bottom: 40px;
+}
+
+.get-started h3 {
+  color: @text-color;
+}
+.get-started-section .color-overlay {
+  padding-top: 125px;
+  padding-bottom: 125px;
+}
+
+/* -------------------------
+How-to Video
+--------------------------*/
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+.video-container {
+  width: 100%;
+  margin-top: 75px;
+}
+
+.video-features {
+  margin-top: 40px;
+}
+
+.video-features .inline-icon {
+  padding-right: 5px;
+}
+
+/* -------------------------
+Footer
+--------------------------*/
+footer {
+  background-color : @primary-color;
+  padding-top: 40px;
+  padding-bottom: 15px;
+}
+
+footer ul {
+  margin-bottom: 40px;
+}
+footer li {
+  padding: 0 8px 0 8px;
+}
+
+footer a {
+  color: #FFF;
+  text-decoration: none;
+  -webkit-transition: all ease 0.25s;
+  transition: all ease 0.25s;
+  &:hover {
+    color: lighten(#CCC, 5%);
+    text-decoration: none;
+  }
+  &:active {
+    color: darken(#CCC, 5%);
+    text-decoration: none;
+  }
+  &:focus {
+    outline: inherit;
+    color: inherit;
+  }
+}
+
+.footer-logo {
+  max-width: 180px;
+  margin: auto;
+}
+
+.copyright {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  color: #FFF;
+}
+/* -------------------------
+End
+--------------------------*/
 
 .content {
     .container;
