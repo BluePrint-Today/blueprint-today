@@ -1,83 +1,207 @@
-
 <template name="Main">
   
-  <!-- Main splash section -->
-  <div id="splash" class="banner">
-    <div class="static"></div>
-     <div class="caption">
-       <h1><span>relax...</span> <span style="display:inline-block">and stay on track</span></h1>
-        <p>Easily schedule and track grades for homeschool courses</p>
-        <p style="margin-top:80px">
-          <a href="/#features"><i class="glyphicon glyphicon-arrow-down" style="font-size:48px; color:gray"></i></a>
-       </p>
-     </div>
+<!-- Main Splash Section -->
+<header id="home">
+  <div class="color-overlay">
+
+    <div class="navigation-header">
+      <div class="navbar">
+        
+        <div class="container">
+          <div class="navbar-header">
+            <img src="http://placehold.it/180x40" alt="BluePrint logo">
+          </div>
+          
+           <ul class="no-decor navbar-right">
+              <li style="padding-right:15px;"><a href="#">FAQs</a></li>
+              <li>{{> loginButtons }}</li>
+            </ul>
+        </div>
+        
+      </div>
+    </div>
+
+
+    <div class="container">
+      <div class="row">
+        
+        <div class="col-md-10 col-md-offset-1 intro-section"> 
+          <h1 class="intro">
+            RELAX... and STAY ON <strong>TRACK</strong>
+          </h1>
+          
+          <p class="heading">
+              Easily schedule and track grades for homeschool courses
+          </p>
+          
+          <!-- Buttons -->
+          <div class="button-container">
+            <a href="#" id="sign_up" class="btn standard-button">Sign Up (it's free)</a>
+            <a href="/#features" class="btn secondary-button-white">Learn More</a>
+          </div>
+        </div>
+
+        <div class="pull-down">
+          <a href="/#features"><i class="glyphicon glyphicon-chevron-down"></i></a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</header> <!-- /End Header -->
+  
+<!-- Features Section -->
+<section id="features" data-nav="featuresTab">
+  <div class="container">
+    
+    <!-- Heading -->
+    <h2>BluePrint Today Features</h2> 
+    <div class="colored-line">
+    </div>  
+    <div class="heading">
+      Easily schedule and track grades for homeschool courses
+    </div>
+    
+    <div class="features">
+      
+      <!-- Row 1 -->
+      <div class="row">
+        <div class="col-md-4">
+          <div class="feature">
+            <div class="icon">
+              <span class="glyphicon glyphicon-flash"></span>
+            </div>
+            <h4>Efficient</h4>
+            <p>
+              Designed just for homeschools so you can get everything entered fast.
+            </p>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="feature">
+            <div class="icon">
+              <span class="glyphicon glyphicon-calendar"></span>
+            </div>
+            <h4>View</h4>
+            <p>
+              See everything you need one whole week at a time.
+            </p>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="feature">
+            <div class="icon">
+              <span class="glyphicon glyphicon-phone"></span>
+            </div>
+            <h4>Mobile</h4>
+            <p>
+              Access from anywhere.  Web-aplication designed to work from your phone and your desktop.
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Row 2 -->
+      <div class="row">
+        
+        <div class="col-md-4">
+          <div class="feature">
+            <div class="icon">
+              <span class="glyphicon glyphicon-print"></span>
+            </div>
+            <h4>Print</h4>
+            <p>
+              Print out weekly schedules by student so they know what needs done.
+            </p>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="feature">
+            <div class="icon">
+              <span class="glyphicon glyphicon-transfer"></span>
+            </div>
+            <h4>Share</h4>
+            <p>
+              Export course schedules and share with friends.  **Coming Soon**
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="feature">
+            <div class="icon">
+              <span class="glyphicon glyphicon-save"></span>
+            </div>
+            <h4>Backup</h4>
+            <p>
+              Backup entire school terms so you will always have your information. **Coming Soon**
+            </p>
+          </div>
+        </div>
+      </div> 
+    </div>
+    
+  </div>
+</section>  <!-- /End Features Section -->
+
+ <!-- Get Started Section -->
+<div class="get-started-section" id="about" data-nav="aboutTab">
+  <div class="color-overlay">
+    <div class="container">
+      
+      <h4>Get started now</h4>
+      <h2>The basic version is free to use so there is no reason to wait.</h2>
+      <div id="cta-4">
+        <a href="#" id="sign_up" class="btn standard-button"> Signup Now</a>
+      </div>
+      
+    </div>  
+  </div>
+</div>
+
+<!-- =========================
+     SECTION 5   
+============================== -->
+<section id="video" data-nav="videoTab">
+
+<div class="container">
+  
+  <!-- SECTION HEADING -->
+  <h2>How to Video</h2>
+  <div class="colored-line">
   </div>
   
-  <!-- Features section -->
-  <div id="features" class="about container" data-nav="featuresTab">
-    <h2>BluePrint Today Features</h2>
-    
-    <div class="feature">
-      <i class="glyphicon glyphicon-flash"></i>
-      <h3>Efficient</h3>
-      <p>
-        Designed just for homeschools so you can get everything entered fast.
-      </p>
-    </div>
-    
-     <div class="feature">
-      <i class="glyphicon glyphicon-calendar"></i>
-      <h3>View</h3>
-      <p>
-        See everything you need one whole week at a time.
-      </p>
-    </div>
-     
-     <div class="feature">
-      <i class="glyphicon glyphicon-phone"></i>
-      <h3>Mobile</h3>
-      <p>
-        Access from anywhere.  Web-aplication designed to work from your phone and your desktop.
-      </p>
-    </div>
+  <div class="heading">
+    Homeschool scheduling and grade tracking made easy
+  </div>
+  
+  <!-- VIDEO -->
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
       
-     <div class="feature">
-      <i class="glyphicon glyphicon-print"></i>
-      <h3>Print</h3>
-      <p>
-        Print out weekly schedules by student so they know what needs done.
-      </p>
-    </div>
-       
-     <div class="feature">
-      <i class="glyphicon glyphicon-transfer"></i>
-      <h3>Share</h3>
-      <p>
-        Export course schedules and share with friends.  **Coming Soon**
-      </p>
-    </div>
+      <div class="video-container">
         
-     <div class="feature">
-      <i class="glyphicon glyphicon-save"></i>
-      <h3>Backup</h3>
-      <p>
-        Backup entire school terms so you will always have your information. **Coming Soon**
-      </p>
+        <div class="video">
+          
+          <iframe src="//player.vimeo.com/video/126705775?byline=0&amp;portrait=0&amp;color=ffffff" width="600" height="338" frameborder="0" allowfullscreen>
+          </iframe> 
+        </div>
+        
+      </div>
     </div>
   </div>
-    
-  <!-- Get started section -->
-   <div id="about" class="banner" data-nav="aboutTab">
-     <div class="caption">
-       <h3><span>Get started now</span></h3>
-        <p>The basic version is free to use so there is no reason to wait.</p>
-        <p style="margin-top:100px">
-          <button id="sign_up">
-            Signup Now
-          </button>
-       </p>
-     </div>
-  </div>
+
+</div> 
+
+</section>
+
+</template>
+
+<!-- FAQs template -->  
+<template name="Faqs">
   
    <!-- FAQ section -->
    <div id="faq" class="about container" data-nav="faqTab">
