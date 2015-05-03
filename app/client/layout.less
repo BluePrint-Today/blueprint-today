@@ -20,6 +20,7 @@ Variables
 @primary-color  :   #7BA29E;
 @secondary-color:   #B39A6A;
 @text-color     :   #4C4C4B;
+@alt-text-color :   #FFFFFF;
 @bg-color       :   #B5BAB4;
 @bg-color-2     :   #FFFFFF;
 
@@ -38,8 +39,6 @@ body {
   color: @text-color;
   line-height: 25px;
   text-align: center;
-  overflow-x: hidden !important;
-  margin: auto !important;
 }
 
 a {
@@ -84,17 +83,6 @@ strong {
   font-weight: 700;
 }
 
-ul,
-ol {
-  padding-left: 0 !important;
-}
-
-li {
-  list-style: none;
-  display: inline;
-}
-
-
 .colored-line {
   background: @primary-color;
   height: 1px;
@@ -108,7 +96,7 @@ li {
   color: @primary-color !important;
 }
 
-section {
+.section {
   padding-top: 50px;
   padding-bottom: 50px;
 }
@@ -290,6 +278,8 @@ Brief Info/Feature
   overflow: auto;
   padding-top: 12px;
   padding-bottom: 12px;
+  list-style: none;
+  display: inline;
 }
 
 .info-list li .icon-container {
@@ -400,6 +390,8 @@ footer ul {
 }
 footer li {
   padding: 0 8px 0 8px;
+  list-style: none;
+  display: inline;
 }
 
 footer a {
