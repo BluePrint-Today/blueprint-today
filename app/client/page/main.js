@@ -1,5 +1,5 @@
 Template.Main.rendered = function(){
-   var sections =  $("div[data-nav]")
+   var sections =  $("[data-nav]")
    var tabs = {}
    this.sections = sections
    this.navtabs = tabs
