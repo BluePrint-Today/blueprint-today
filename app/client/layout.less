@@ -21,6 +21,7 @@ Variables
 @secondary-color:   #B39A6A;
 @text-color     :   #4C4C4B;
 @bg-color       :   #B5BAB4;
+@bg-color-2     :   #FFFFFF;
 
 /* -------------------------
 Styles
@@ -245,8 +246,8 @@ header {
 }
 
 .intro-section {
-  margin-top: 100px;
-  margin-bottom: 137px;
+  margin-top: 70px;
+  margin-bottom: 100px;
 }
 
 .intro {
@@ -271,7 +272,7 @@ header {
   position: absolute;
   font-size: 28px;
   color: @primary-color;
-  bottom: 1em;
+  bottom: 55px;
   left: 0;
   right: 0;
   margin-top: 0;
@@ -280,6 +281,46 @@ header {
   }
 }
 
+
+/* -------------------------
+Brief Info/Feature
+--------------------------*/
+.bgcolor-2 {
+  background: @bg-color-2;
+}
+
+.info-list {
+  margin-top: 25px;
+}
+
+.info-list li {
+  overflow: auto;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.info-list li .icon-container {
+  width: 32px;
+  height: 32px;
+  border-radius: 3px;
+  background: @secondary-color;
+  color: #ffffff;
+  line-height: 32px;
+  margin-right: 15px;
+  margin-top: 5px;
+  text-align: center;
+}
+
+.info-list li .details {
+  width: 89%;
+  &:p {
+  margin-top: 5px;
+  }
+}
+
+.side-infogrpah {
+  max-width: 532px;
+}
 
 /* -------------------------
 Features
