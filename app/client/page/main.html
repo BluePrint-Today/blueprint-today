@@ -3,31 +3,12 @@
 <!-- Main Splash Section -->
 <header id="home">
   <div class="color-overlay">
-
-    <div class="navigation-header">
-      <div class="navbar">
-        
-        <div class="container">
-          <div class="navbar-header">
-            <img src="http://placehold.it/180x40" alt="BluePrint logo">
-          </div>
-          
-           <ul class="no-decor navbar-right">
-              <li style="padding-right:15px;"><a href="#">FAQs</a></li>
-              <li>{{> loginButtons }}</li>
-            </ul>
-        </div>
-        
-      </div>
-    </div>
-
-
     <div class="container">
       <div class="row">
         
         <div class="col-md-10 col-md-offset-1 intro-section"> 
           <h1 class="intro">
-            RELAX... and STAY ON <strong>TRACK</strong>
+            relax... and stay on track
           </h1>
           
           <p class="heading">
@@ -39,29 +20,80 @@
             <a href="#" id="sign_up" class="btn standard-button">Sign Up (it's free)</a>
             <a href="/#features" class="btn secondary-button-white">Learn More</a>
           </div>
-        </div>
 
-        <div class="pull-down">
-          <a href="/#features"><i class="glyphicon glyphicon-chevron-down"></i></a>
+          <div class="scroll-down">
+            <a href="/#features"><i class="glyphicon glyphicon-chevron-down"></i></a>
+          </div>
         </div>
 
       </div>
     </div>
   </div>
 </header> <!-- /End Header -->
-  
-<!-- Features Section -->
-<section id="features" data-nav="featuresTab">
+
+
+<!-- Brief Info/Feature Section -->
+<section class="section bgcolor-2" id="features" data-nav="featuresTab" >
+
   <div class="container">
-    
-    <!-- Heading -->
-    <h2>BluePrint Today Features</h2> 
-    <div class="colored-line">
-    </div>  
-    <div class="heading">
-      Easily schedule and track grades for homeschool courses
+    <div class="row">
+      
+      <div class="col-md-6">
+        <!-- Image -->
+        <div class="side-infograph pull-left" style="margin-top: -100px;">
+          <img src="../images/bpt-features.png" alt="Feature" class="img-responsive">
+        </div>
+      </div>
+      
+      <div class="col-md-6">
+        <div class="text-left">
+          
+          <!-- HEADING -->
+          <h2>Give Your Homeschooling An Upgrade</h2>
+          <div class="colored-line pull-left">
+          </div>
+          <div class="clearfix"></div>
+          <!-- TEXT -->
+          <p>
+            App specifically designed for homeschool schedule planning and grade tracking.
+          </p>
+          
+          <ul class="info-list" style="padding-left: 0 !important;">
+            
+
+            <li>
+            <div class="icon-container pull-left">
+              <span class="glyphicon glyphicon-edit"></span>
+            </div>
+
+            <div class="details pull-left">
+              <h6>No More Pen and Paper</h6>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur minima nam ipsum tempore ratione.
+              </p>  
+            </div>
+            </li>
+
+            <li>
+            <div class="icon-container pull-left">
+               <span class="glyphicon glyphicon-cloud-download"></span>
+            </div>
+
+            <div class="details pull-left">
+              <h6>Track from Anywhere</h6>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, odit hic vel impedit.
+              </p>
+            </div>
+            </li>
+          </ul>
+        </div>
+      </div> 
+      
     </div>
-    
+  </div>
+
+  <div class="container">    
     <div class="features">
       
       <!-- Row 1 -->
@@ -142,17 +174,18 @@
           </div>
         </div>
       </div> 
+
     </div>
-    
   </div>
+
 </section>  <!-- /End Features Section -->
 
  <!-- Get Started Section -->
-<div class="get-started-section" id="about" data-nav="aboutTab">
+<section class="get-started-section" id="about" data-nav="aboutTab">
   <div class="color-overlay">
     <div class="container">
       
-      <h4>Get started now</h4>
+      <h1>Get started now</h1>
       <h2>The basic version is free to use so there is no reason to wait.</h2>
       <div id="cta-4">
         <a href="#" id="sign_up" class="btn standard-button"> Signup Now</a>
@@ -160,17 +193,17 @@
       
     </div>  
   </div>
-</div>
+</section>
 
 <!-- =========================
      SECTION 5   
 ============================== -->
-<section id="video" data-nav="videoTab">
+<section id="video" class="section" data-nav="videoTab">
 
 <div class="container">
   
   <!-- SECTION HEADING -->
-  <h2>How to Video</h2>
+  <h2>Watch Demo</h2>
   <div class="colored-line">
   </div>
   
@@ -197,6 +230,8 @@
 </div> 
 
 </section>
+
+{{> footer}}
 
 </template>
 

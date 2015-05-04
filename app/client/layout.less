@@ -7,7 +7,7 @@
 /* -------------------------
 Imports
 --------------------------*/
-@import url("http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic|Raleway:500,600,700");
+@import url("http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,700,400italic");
 
 /* -------------------------
 Mixins
@@ -20,7 +20,9 @@ Variables
 @primary-color  :   #7BA29E;
 @secondary-color:   #B39A6A;
 @text-color     :   #4C4C4B;
+@alt-text-color :   #FFFFFF;
 @bg-color       :   #B5BAB4;
+@bg-color-2     :   #FFFFFF;
 
 /* -------------------------
 Styles
@@ -37,8 +39,6 @@ body {
   color: @text-color;
   line-height: 25px;
   text-align: center;
-  overflow-x: hidden !important;
-  margin: auto !important;
 }
 
 a {
@@ -83,17 +83,6 @@ strong {
   font-weight: 700;
 }
 
-ul,
-ol {
-  padding-left: 0 !important;
-}
-
-li {
-  list-style: none;
-  display: inline;
-}
-
-
 .colored-line {
   background: @primary-color;
   height: 1px;
@@ -107,7 +96,7 @@ li {
   color: @primary-color !important;
 }
 
-section {
+.section {
   padding-top: 50px;
   padding-bottom: 50px;
 }
@@ -121,7 +110,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   color: #323232;
   margin-bottom: 0;
   margin-top: 0;
@@ -228,7 +217,7 @@ Header/Splash
 --------------------------*/
 
 header {
-  background: url("http://placehold.it/1920x1080") no-repeat center top fixed;
+  background: url("../images/relax.jpg") no-repeat center top fixed;
   -webkit-background-size: cover;
   background-size: cover;
   width:100%;
@@ -239,18 +228,19 @@ header {
   background: rgba(123,162,158, 0.6);
 }
 
-.navigation-header {
-  padding-top: 47px;
-  padding-bottom: 30px;
-}
-
 .intro-section {
-  margin-top: 100px;
-  margin-bottom: 137px;
+  margin-top: 180px;
+  margin-bottom: 120px;
 }
 
 .intro {
   color: #ffffff;
+}
+
+.intro {
+  font-size: 3.813rem;
+  line-height: 3.9rem;
+  font-weight: 200;
 }
 
 .intro-section .heading {
@@ -267,11 +257,9 @@ header {
     margin-bottom: 25px;
 }
 
-.pull-down a{
-  position: absolute;
+.scroll-down a{
   font-size: 28px;
   color: @primary-color;
-  bottom: 1em;
   left: 0;
   right: 0;
   margin-top: 0;
@@ -282,6 +270,48 @@ header {
 
 
 /* -------------------------
+Brief Info/Feature
+--------------------------*/
+.bgcolor-2 {
+  background: @bg-color-2;
+}
+
+.info-list {
+  margin-top: 25px;
+}
+
+.info-list li {
+  overflow: auto;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  list-style: none;
+  display: inline;
+}
+
+.info-list li .icon-container {
+  width: 32px;
+  height: 32px;
+  border-radius: 3px;
+  background: @primary-color;
+  color: #ffffff;
+  line-height: 32px;
+  margin-right: 15px;
+  margin-top: 5px;
+  text-align: center;
+}
+
+.info-list li .details {
+  width: 89%;
+  &:p {
+  margin-top: 5px;
+  }
+}
+
+.side-infograph {
+  max-width: 100%;
+}
+
+/* -------------------------
 Features
 --------------------------*/
 .features {
@@ -289,8 +319,8 @@ Features
 }
 
 .feature {
-  margin-top: 40px;
-  margin-bottom: 35px;
+  margin-top: 30px;
+  margin-bottom: 25px;
 }
 
 .feature .icon {
@@ -307,28 +337,29 @@ Features
 Get Started
 --------------------------*/
 .get-started-section {
-  background: url("http://placehold.it/1920x1080") no-repeat center fixed;
+  background: url("../images/parallax-clean-desk.jpg") no-repeat center fixed;
   -webkit-background-size: cover;
   background-size: cover;
 }
 
-.get-started h4 {
-  color: @text-color;
+.get-started-section h1 {
+  color: @alt-text-color;
+  font-weight: 400;
 }
 
-.get-started h2 {
-  color: @text-color;
-  font-weight: 700;
+.get-started-section h2 {
+  color: @alt-text-color;
+  font-weight: 200;
   margin-top: 15px;
   margin-bottom: 40px;
 }
 
-.get-started h3 {
-  color: @text-color;
+.get-started-section h3 {
+  color: @alt-text-color;
 }
 .get-started-section .color-overlay {
-  padding-top: 125px;
-  padding-bottom: 125px;
+  padding-top: 200px;
+  padding-bottom: 200px;
 }
 
 /* -------------------------
@@ -352,6 +383,12 @@ video {
   padding-right: 5px;
 }
 
+iframe,
+embed,
+object {
+  max-width: 100%;
+}
+
 /* -------------------------
 Footer
 --------------------------*/
@@ -366,6 +403,8 @@ footer ul {
 }
 footer li {
   padding: 0 8px 0 8px;
+  list-style: none;
+  display: inline;
 }
 
 footer a {
