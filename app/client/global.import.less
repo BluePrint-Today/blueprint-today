@@ -1,0 +1,215 @@
+/* -------------------------
+Imports
+--------------------------*/
+@import url("http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,700,400italic");
+
+/* -------------------------
+Mixins
+--------------------------*/
+
+
+/* -------------------------
+Variables
+--------------------------*/
+@primary-color  :   #7BA29E;
+@secondary-color:   #B39A6A;
+@text-color     :   #4C4C4B;
+@alt-text-color :   #FFFFFF;
+@bg-color       :   #B5BAB4;
+@bg-color-2     :   #FFFFFF;
+
+/* -------------------------
+Styles
+--------------------------*/
+
+html {
+  font-size: 100%;
+}
+
+body {
+  background: @bg-color;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 16px;
+  color: @text-color;
+}
+
+a {
+  color: @primary-color;
+  text-decoration: none;
+  -webkit-transition: all ease 0.25s;
+  transition: all ease 0.25s;
+  &:hover {
+    color: lighten(@primary-color, 5%);
+    text-decoration: underline;
+  }
+  &:active {
+    color: darken(@primary-color, 5%);
+  }
+  &:focus {
+    outline: inherit;
+    color: inherit;
+  }
+}
+
+.no-decor a {
+  color: #CCC;
+  text-decoration: none;
+  -webkit-transition: all ease 0.25s;
+  transition: all ease 0.25s;
+  &:hover {
+    color: lighten(#CCC, 5%);
+  }
+  &:active {
+    color: darken(#CCC, 5%);
+  }
+  &:focus {
+    outline: inherit;
+    color: inherit;
+  }
+}
+
+strong {
+  font-weight: 700;
+}
+
+
+.strong {
+  font-weight: 700;
+}
+
+.colored-line {
+  background: @primary-color;
+  height: 1px;
+  width: 70px;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.colored-text {
+  color: @primary-color !important;
+}
+
+
+/* -------------------------
+Typography
+--------------------------*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #323232;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 2.813rem;
+  line-height: 3.75rem;
+  font-weight: 500;
+}
+
+h2 {
+  font-size: 2.188rem;
+  line-height: 3.125rem;
+  font-weight: 500;
+}
+
+h3 {
+  font-size: 1.5rem;
+  line-height: 2.375rem;
+  font-weight: 600;
+}
+
+h4 {
+  font-size: 1.25rem;
+  line-height: 2rem;
+  font-weight: 600;
+}
+
+h5 {
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 700;
+}
+
+h6 {
+  font-size: 16px;
+  line-height: 25px;
+  font-weight: 700;
+}
+
+/* -------------------------
+Buttons
+--------------------------*/
+.btn:focus,
+.btn:active,
+.btn,
+.open .dropdown-toggle.btn {
+  outline: inherit;
+}
+
+.standard-button {
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: 3px;
+  padding: 15px 30px;
+  border: 0;
+  margin: 5px;
+  line-height: inherit;
+  -webkit-transition: all ease 0.25s;
+  transition: all ease 0.25s;
+}
+
+.standard-button {
+  background: @primary-color;
+  color: #ffffff;
+  text-decoration: none;
+  -webkit-transition: all ease 0.25s;
+  transition: all ease 0.25s;
+  &:hover {
+    background: lighten(@primary-color, 5%);
+    color: #ffffff;
+  }
+}
+
+.secondary-button-white {
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: 3px;
+  padding: 14px 30px;
+  border: 0;
+  margin: 5px;
+  border: 1px solid #727272;
+  color: #ffffff;
+  background: transparent;
+  line-height: inherit;
+  border: 1px solid rgba(255,255,255,0.5);
+  -webkit-transition: all ease 0.25s;
+  transition: all ease 0.25s;
+}
+
+.secondary-button-white:hover {
+    border: 1px solid rgba(255,255,255,1);
+    color: #ffffff;
+}
+
+
+.picker__wrap{
+ select{
+   .form-control;
+   width: 40%;
+   display: inline;
+ }  
+ .picker__select--year, .picker__select--month{
+   padding: 0;
+ }
+}
+
