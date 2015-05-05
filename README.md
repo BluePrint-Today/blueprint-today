@@ -93,6 +93,7 @@ Changes to data model are done through Meteor methods so the logic is run on ser
 
 
 ## File Structure
+```
 /app/          Main Meteor application
 /app/client    Meteor client side code
 /app/server    Meteor server side code
@@ -108,3 +109,4 @@ Changes to data model are done through Meteor methods so the logic is run on ser
 /app/common
 /lib           Libaries and utilities common to both client and serer
 /model         Data models
+```
