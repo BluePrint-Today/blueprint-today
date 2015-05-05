@@ -1,0 +1,23 @@
+
+<template name="course_list">
+  {{# dialog_box id="course_list_manage_dialog" heading="Manage Coursees" }}
+    {{# list_panel heading="Course" items=items }}
+      {{title}}
+    {{/ list_panel}}
+  {{/ dialog_box}}
+  
+  {{# dialog_box id="course_list_dialog" heading="Course" data=selectedItem }}
+    <div class="form-group">
+      <label>Title</label>
+      <input id="courseTitle" class="autoFocus" type="text" value="{{title}}"/>
+    </div>
+    <div class="form-group">
+      <label>Students</label>
+      <select id="courseStudents" multiple>
+        {{#each students}}
+          <option value="{{_id}}" {{selected}}>{{name}}</option>
+        {{/each}}
+      </select>
+  </div>
+  {{/ dialog_box}}
+</template>

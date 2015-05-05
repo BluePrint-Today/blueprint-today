@@ -1,0 +1,188 @@
+.main-page{
+  text-align: center;
+  line-height: 25px;
+  
+  .section {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+
+  /* -------------------------
+  Header/Splash
+  --------------------------*/
+
+  header {
+    background: url("../images/relax.jpg") no-repeat center top fixed;
+    -webkit-background-size: cover;
+    background-size: cover;
+    width:100%;
+    height:100%;
+  }
+
+  .color-overlay {
+    background: rgba(123,162,158, 0.6);
+  }
+
+  .intro-section {
+    margin-top: 180px;
+    margin-bottom: 120px;
+  }
+
+  .intro {
+    color: #ffffff;
+  }
+
+  .intro {
+    font-size: 3.813rem;
+    line-height: 3.9rem;
+    font-weight: 200;
+  }
+
+  .intro-section .heading {
+      font-size: 20px;
+      padding-right: 10%;
+      padding-left: 10%;
+      color: #ffffff;
+      margin-top: 40px;
+      line-height: 30px;
+  }
+
+  .button-container {
+      margin-top: 75px;
+      margin-bottom: 25px;
+  }
+
+  .scroll-down a{
+    font-size: 28px;
+    color: @primary-color;
+    left: 0;
+    right: 0;
+    margin-top: 0;
+    &:hover{
+      color: lighten(@primary-color, 5%);
+    }
+  }
+
+
+  /* -------------------------
+  Brief Info/Feature
+  --------------------------*/
+  .bgcolor-2 {
+    background: @bg-color-2;
+  }
+
+  .info-list {
+    margin-top: 25px;
+  }
+
+  .info-list li {
+    overflow: auto;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    list-style: none;
+    display: inline;
+  }
+
+  .info-list li .icon-container {
+    width: 32px;
+    height: 32px;
+    border-radius: 3px;
+    background: @primary-color;
+    color: #ffffff;
+    line-height: 32px;
+    margin-right: 15px;
+    margin-top: 5px;
+    text-align: center;
+  }
+
+  .info-list li .details {
+    width: 89%;
+    &:p {
+    margin-top: 5px;
+    }
+  }
+
+  .side-infograph {
+    max-width: 100%;
+  }
+
+  /* -------------------------
+  Features
+  --------------------------*/
+  .features {
+    margin-top: 35px;
+  }
+
+  .feature {
+    margin-top: 30px;
+    margin-bottom: 25px;
+  }
+
+  .feature .icon {
+    font-size: 50px;
+    margin-bottom: 30px;
+    color: @secondary-color;
+  }
+
+  .feature h4 {
+    margin-bottom: 10px;
+  }
+
+  /* -------------------------
+  Get Started
+  --------------------------*/
+  .get-started-section {
+    background: url("../images/parallax-clean-desk.jpg") no-repeat center fixed;
+    -webkit-background-size: cover;
+    background-size: cover;
+  }
+
+  .get-started-section h1 {
+    color: @alt-text-color;
+    font-weight: 400;
+  }
+
+  .get-started-section h2 {
+    color: @alt-text-color;
+    font-weight: 200;
+    margin-top: 15px;
+    margin-bottom: 40px;
+  }
+
+  .get-started-section h3 {
+    color: @alt-text-color;
+  }
+  .get-started-section .color-overlay {
+    padding-top: 200px;
+    padding-bottom: 200px;
+  }
+
+  /* -------------------------
+  How-to Video
+  --------------------------*/
+  video {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .video-container {
+    width: 100%;
+    margin-top: 75px;
+  }
+
+  .video-features {
+    margin-top: 40px;
+  }
+
+  .video-features .inline-icon {
+    padding-right: 5px;
+  }
+
+  iframe,
+  embed,
+  object {
+    max-width: 100%;
+  }
+
+}
