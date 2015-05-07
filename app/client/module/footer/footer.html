@@ -1,13 +1,7 @@
 <template name="footer">
+
 	<footer>
 		<div class="footer-section">
-			<ul>
-				<li><a href="#">Privacy Policy</a></li>
-				<li><a href="#">Terms of Use</a></li>
-				<li><a href="#">Help</a></li>
-				<li><a href="#">Facebook</a></li>
-				<li><a href="#">Twitter</a></li>
-			</ul>
 			<div class="footer-logo">
 				<img src="http://placehold.it/180x40" alt="BluePrint Logo">
 			</div>
@@ -16,6 +10,12 @@
        				 &copy; Copyright 2015 BluePrint Today. All rights reserved.
       			</p>		 
 			</div>
+			<div class="footer-links">
+				<a href="{{ pathFor 'privacy' }}" class="link" >Privacy Policy</a>
+				<a href="{{ pathFor 'terms' }}" class="link" >Terms of Use</a>
+				<a href="mailto:blueprint.today@gmail.com" class="link">Contact</a>
+			</div>
 		</div>
 	</footer>
+
 </template>
