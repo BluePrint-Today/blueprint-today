@@ -7,6 +7,18 @@ Router.route('/', function () {
   this.render('Main')
 })
 
+Router.route('/faqs', function () {
+  this.render('Faqs')
+})
+
+Router.route('/terms', function () {
+  this.render('Terms')
+})
+
+Router.route('/privacy', function () {
+  this.render('Privacy')
+})
+
 Router.route('/home', function () {
   this.render('Home')
 })
@@ -21,7 +33,7 @@ Router.onBeforeAction(function () {
   } else {
     this.next()
   }
-}, {except: ["Main"]})
+}, {except: ["Main", "faqs", "terms", "privacy"]})
 
 
 Template.mainNavigation.events({
