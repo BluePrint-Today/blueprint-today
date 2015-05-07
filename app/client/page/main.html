@@ -1,4 +1,5 @@
 <template name="Main">
+  
 <div class="main-page">
 <!-- Main Splash Section -->
 <header id="home">
@@ -195,14 +196,12 @@
   </div>
 </section>
 
-<!-- =========================
-     SECTION 5   
-============================== -->
-<section id="video" class="section" data-nav="videoTab">
+<!-- Video Section -->
+<section id="video" class="section" style="display: none" data-nav="videoTab">
 
 <div class="container">
   
-  <!-- SECTION HEADING -->
+  <!-- Section Heading-->
   <h2>Watch Demo</h2>
   <div class="colored-line">
   </div>
@@ -211,7 +210,7 @@
     Homeschool scheduling and grade tracking made easy
   </div>
   
-  <!-- VIDEO -->
+  <!-- Video -->
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
       
@@ -231,59 +230,7 @@
 
 </section>
 </div>
+
 {{> footer}}
 
-</template>
-
-<!-- FAQs template -->  
-<template name="Faqs">
-  
-   <!-- FAQ section -->
-   <div id="faq" class="about container" data-nav="faqTab">
-    <h2>Frequently Asked Questions</h2>
-     
-     <div class="question">
-       <h4>How do I enter grades?</h4>
-       <p>
-         In the table cell before the days course description you can enter either a percentage like 90 
-         or you can enter a fraction of correct over total like 48/50 and the percentage will be calculated.
-       </p>
-     </div>
-      
-     <div class="question">
-       <h4>What if something doesn't need a grade?</h4>
-       <p>
-         If you have a task like "Read chapter 1" but there is no homework or quiz for that, just leave the grade
-         blank.  A blank grade doesn't mean 0 it means no grade and is not used to calculate the final course total grade.
-       </p>
-     </div>
-       
-     <div class="question">
-       <h4>Can I have weighted grades?</h4>
-       <p>
-         When you enter a description for a day there is a dropdown above the field.  You can choose from default (suitable for homework or general work),
-         quizes, and tests.  If you only use default for everything then everything will have the same weight and all grades will be averaged together.
-         If you use default and another like test then all default grades will be averaged together and account for 50% of the final grade, all
-         test grades will be averaged together and account for the other half of the final grade.  If you use all three grade types then each type
-         will account for 1/3 of the final grade.
-       </p>
-     </div>
-      
-     <div class="question">
-       <h4>Can I assign different weight values to each grade type?</h4>
-       <p>
-         To keep things simplified and quick to use each grade type is fixed to have equal weight.
-       </p>
-     </div>
-       
-     <div class="question">
-       <h4>What is the difference between the free and the paid version?</h4>
-       <p>
-         At the moment there is only the free version.  In the future the paid version will allow you to import course schedules
-         that others have exported and shared with you.
-       </p>
-     </div>
-      
-  </div>
-  
 </template>
