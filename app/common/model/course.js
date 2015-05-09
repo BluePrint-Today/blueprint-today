@@ -23,7 +23,7 @@ Meteor.methods({
     checkLogIn(this)
     var count = Course.update({_id: courseId, userId: this.userId, 'days.dayNumber': dayNumber}, {$set: {'days.$.description': description, 'days.$.gradeType': gradeType} })
     if(count == 0)
-      Course.update({_id: courseId, userId: this.userId}, {$push: {'days': {dayNumber: dayNumber, description: description, 'days.$.gradeType': gradeType} } })
+      Course.update({_id: courseId, userId: this.userId}, {$push: {'days': {dayNumber: dayNumber, description: description, 'gradeType': gradeType} } })
   },
   
   saveCourseGrade: function(courseId, studentId, dayNumber, gradeText){
