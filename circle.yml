@@ -7,6 +7,7 @@ deployment:
     branch: production
     commands:
       - git clone $PROD_REPO production 
-      - cd production && ./update.sh && git add --all && git commit -m "Deploy" && git push
+      - cd production && ./update.sh 
+      - cd production && git add --all && git diff-index --quiet HEAD || (git commit -m "Deploy" && git push)
 
       
