@@ -3,8 +3,4 @@ deployment:
     branch: master
     commands:
       - cd app && expect -c "set timeout 60; spawn meteor deploy test.blueprinttoday.com; expect "Email:" { send $METEOR_DEPLOY_EMAIL\r }; expect "Password:" { send $METEOR_DEPLOY_PASSWORD\r; expect eof }"
-  production:
-    branch: production
-    commands:
-      - git clone $PROD_REPO production && cd production && ./update.sh && git add --all && git commit -m "Deploy" && git push
       
