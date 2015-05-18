@@ -3,7 +3,15 @@ Template.grade_table.created = function(){
 }
 
 Template.grade_table.rendered = function(){
+  // Set selectable range
+  var termId = Session.get('current_term')
+  var t = SchoolTerm.findOne({_id: termId})
+  var s= moment.utc(t.mondayDate)
+  var e= moment(s).add(52, 'week').add(-1, 'day')
+  
   this.picker = this.$('#scheduleWeekSelect').pickadate({
+     min: new Date(s.format('MM-DD-YYYY')),
+     max: new Date(e.format('MM-DD-YYYY')),
      selectMonths: true,
      selectYears: true,
      firstDay: 1,
@@ -11,8 +19,8 @@ Template.grade_table.rendered = function(){
      container: '#scheduleWeekSelectContainer'
   }).pickadate('picker')
   
-  var termId = Session.get('current_term')
   this.picker.on('set', function(obj){
+    // start date could change from another instance so re-get
     var term = SchoolTerm.findOne({_id: termId})
     var start = moment.utc(term.mondayDate)
     var selectedMonday = moment.utc(obj.select).startOf('isoWeek')
@@ -23,7 +31,12 @@ Template.grade_table.rendered = function(){
       week = 1
     Session.set('current_week', week)
   })
-  this.picker.set('select', new Date())
+  
+  // Set initial starting point when first rendering
+  var c = moment.max(moment(), s)
+  var c = moment.min(c, e)
+  var d = new Date(c.format('MM-DD-YYYY'))
+  this.picker.set('select', d)
 }
 
 Template.grade_table.helpers({
