@@ -80,7 +80,7 @@ Course.getSchedule = function(termId, week){
       var enrolled = course.students || []
       if($.inArray(student._id, enrolled) != -1){
         var courseSchedule = {
-          title: course.title,
+          title: course.title + ' ' + calculateTotalGrade(days, student),
           studentId: student._id,
           courseId: course._id,
           weekNumber: week,
@@ -108,7 +108,9 @@ Course.getSchedule = function(termId, week){
 }
 
 Course.calculateGradeData = function(gradeText){
-     var gradeValue = null
+   var gradeData = {}
+   if(gradeText){
+    var gradeValue = null
     var vals = gradeText.split('/')
     if(vals.length == 2){
       var v1 = Number(vals[0])
@@ -123,9 +125,10 @@ Course.calculateGradeData = function(gradeText){
       gradeText = ""
       gradeValue = null
     }
+    gradeData = {text: gradeText, value: gradeValue}
+   } 
       
-    var gradeData = {text: gradeText, value: gradeValue}
-    return gradeData
+   return gradeData
 }
  
 function getGrade(days, student, week, dayOfWeek){
@@ -136,6 +139,43 @@ function getGrade(days, student, week, dayOfWeek){
     }
   }
   return {}
+}
+
+function calculateTotalGrade(days, student){
+  var gradeSummary= {}
+  // Summarize by grade type
+  for(var i = 0; i < days.length; i++){
+    var courseDay = days[i]
+    var studentGradeData = courseDay[student._id] || {}
+    var studentGrade = studentGradeData.value
+    if( studentGrade && Number.isFinite(studentGrade)){
+      var gradeType = courseDay.gradeType || ""
+      var sumData = gradeSummary[gradeType] || {}
+      var sumValue = sumData.value || 0.0
+      var sumCount = sumData.count || 0
+      sumValue = sumValue + studentGrade
+      sumCount++
+      sumData.value = sumValue
+      sumData.count = sumCount
+      gradeSummary[gradeType] = sumData
+    }
+  }
+  
+  // Calculate overall average
+  var total = 0
+  var count = 0
+  for(var key in gradeSummary){
+    if(gradeSummary.hasOwnProperty(key)){
+      total = total + gradeSummary[key].value / gradeSummary[key].count
+      count++
+    }
+  }
+  
+  if(count > 0)
+    total = (total / count).toFixed(1)
+  else
+    total = ""
+  return total
 }
 
 function getDescription(days, week, dayOfWeek){
