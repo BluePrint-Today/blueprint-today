@@ -53,10 +53,10 @@ Template.grade_table.helpers({
   options: function(){
     return {
       renderAllRows: true,
-      viewportColumnRenderingOffset: 14,
-      fixedColumnsLeft: 1,
-      colWidths: [200, 60, 200, 60, 200, 60, 200, 60, 200, 60, 200, 60, 200, 60, 200],
-      colHeaders: ['<input id="selectWeek" readonly/>', 
+      viewportColumnRenderingOffset: 15,
+      fixedColumnsLeft: 2,
+      colWidths: [60, 100, 60, 200, 60, 200, 60, 200, 60, 200, 60, 200, 60, 200, 60, 200],
+      colHeaders: ['', '<input id="selectWeek" readonly/>', 
                    '', 'Monday', 
                    '', 'Tuesday', 
                    '', 'Wednesday', 
@@ -64,7 +64,7 @@ Template.grade_table.helpers({
                    '', 'Friday', 
                    '', 'Saturday', 
                    '', 'Sunday'],
-      columns: [ {data: 'title'}, 
+      columns: [{data: 'grade', readOnly: true}, {data: 'title', readOnly: true}, 
                 {data: 'g1', type: 'grade'}, {data: 'd1', type: 'description'}, 
                 {data: 'g2', type: 'grade'}, {data: 'd2', type: 'description'}, 
                 {data: 'g3', type: 'grade'}, {data: 'd3', type: 'description'}, 

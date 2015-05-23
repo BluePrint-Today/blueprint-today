@@ -69,7 +69,7 @@ Course.getSchedule = function(termId, week){
     var student = students[s]
     
     var courseGroup = {
-      title: student.name,
+      grade: student.name,
       _header: true
     }
     schedule.push(courseGroup)
@@ -80,7 +80,8 @@ Course.getSchedule = function(termId, week){
       var enrolled = course.students || []
       if($.inArray(student._id, enrolled) != -1){
         var courseSchedule = {
-          title: course.title + ' ' + calculateTotalGrade(days, student),
+          title: course.title,
+          grade: calculateTotalGrade(days, student),
           studentId: student._id,
           courseId: course._id,
           weekNumber: week,
