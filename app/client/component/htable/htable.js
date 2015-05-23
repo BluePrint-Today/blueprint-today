@@ -31,9 +31,9 @@ function updateProperties(instance){
       if(row._header === true){
         mergeCells.push({
           row: r,
-          col: 1,
+          col: 0,
           rowspan: 1,
-          colspan: 14
+          colspan: 16
         })
         settings.cell.push({
           row: r,
@@ -57,4 +57,5 @@ function updateProperties(instance){
 
 function headerRenderer(instance, td, row, col, prop, value, cellProperties){
   $(td).css('background-color', 'lightgray')
+  $(td).css('font-weight', 'bold')
 }
