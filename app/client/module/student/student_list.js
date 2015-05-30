@@ -30,17 +30,15 @@ Template.student_list.events({
     var nameValue = nameTextBox.value.trim()
     var selectedId = Session.get('list_panel')
     if(nameValue.length > 0){
-      Meteor.call('saveStudent', {_id: selectedId, name: nameValue}, function(err, id){
-        if(!err)
-      	Session.set('list_panel', id)
-      })
+      var id = Student.save({_id: selectedId, name: nameValue})
+      Session.set('list_panel', id)
       Template.dialog_box.close('#student_list_dialog')
     }
   },
   
   'click .dialog_box_delete': function(event){
     var selectedId = Session.get('list_panel')
-    Meteor.call('deleteStudent', {_id: selectedId})
+    Student.delete({_id: selectedId})
     Template.dialog_box.close('#student_list_dialog')
   }
   

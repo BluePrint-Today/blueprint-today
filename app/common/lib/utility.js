@@ -1,4 +1,5 @@
 
+var recordIdPattern = new RegExp('^[A-Za-z0-9 _-]*$')
 
 checkLogIn = function(obj){
 	if(typeof(obj.userId) == 'undefined' || obj.userId == null){
@@ -11,6 +12,13 @@ hasId = function(obj){
      return true
    else
      return false
+}
+
+validateId = function(id){
+  if(typeof(id) == 'undefined' || id == null)
+     throw new Meteor.Error(404, "Null record id")
+  if(!recordIdPattern.test(id))
+     throw new Meteor.Error(404, "Invalid record id: " + id)
 }
 
 Meteor.subscription = function(pub, sub){
