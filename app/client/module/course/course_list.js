@@ -57,14 +57,14 @@ Template.course_list.events({
     var selectedId = Session.get('list_panel')
     var termId = Session.get('current_term')
     if(titleValue.length > 0){
-      Meteor.call('saveCourse', {_id: selectedId, termId: termId, title: titleValue, students: selectedStudents})
+      Course.save({_id: selectedId, termId: termId, title: titleValue, students: selectedStudents})
       Template.dialog_box.close('#course_list_dialog')
     }
   },
   
   'click .dialog_box_delete': function(event){
     var selectedId = Session.get('list_panel')
-    Meteor.call('deleteCourse', {_id: selectedId})
+    Course.delete({_id: selectedId})
     Template.dialog_box.close('#course_list_dialog')
   }
   

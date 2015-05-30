@@ -47,17 +47,15 @@ Template.school_term_list.events({
     var startValue = startTextBox.value.trim()
     var startDate = moment(startValue, 'MM-DD-YYYY')
     if(titleValue.length > 0 && startDate != null){
-      Meteor.call('saveSchoolTerm', {_id: selectedId, title: titleValue, year: startDate.year(), month: startDate.month(), date: startDate.date()}, function(err, id){
-        if(!err)
-      	Session.set('list_panel', id)
-      })
+      var id = SchoolTerm.save({_id: selectedId, title: titleValue, year: startDate.year(), month: startDate.month(), date: startDate.date()})
+      Session.set('list_panel', id)
       Template.dialog_box.close('#school_term_dialog')
     }
   },
   
   'click .dialog_box_delete': function(event){
     var selectedId = Session.get('list_panel')
-    Meteor.call('deleteSchoolTerm', {_id: selectedId})
+    SchoolTerm.delete({_id: selectedId})
     Template.dialog_box.close('#school_term_dialog')
   }
   

@@ -1,21 +1,45 @@
 
 Student = new Meteor.Collection("student")
 
+// DAO Methods
+Student.save = function(student){
+  if(hasId(student)){
+    Meteor.call('updateStudent', student)
+  }else{
+    student._id = Random.id()
+    Meteor.call('addStudent', student)
+  }
+  return student._id
+}
+
+Student.delete = function(student){
+  Meteor.call('deleteStudent', student)
+}
+
+// Collection
 Meteor.subscription("allStudent",  function () {
 	return Student.find({userId: this.userId}, {})
 });
 
 Meteor.methods({
     
-  saveStudent: function(student){
+  updateStudent: function(student){
+    checkLogIn(this)
+    check(student.name, String)
+
+    if(hasId(student))
+	   Student.update({_id: student._id, userId: this.userId}, {$set: {name: student.name}})
+  },
+  
+  addStudent: function(student){
     checkLogIn(this)
     check(student.name, String)
 
     if(hasId(student)){
-	 	Student.update({_id: student._id, userId: this.userId}, {$set: {name: student.name}})
-      return student._id
+      validateId(student._id)
+      Student.insert({_id: student._id, userId: this.userId, name: student.name})
     }else
-      return Student.insert({userId: this.userId, name: student.name})
+      Student.insert({userId: this.userId, name: student.name})
   },
   
   deleteStudent: function(student){

@@ -1,53 +1,20 @@
 
 Course = new Meteor.Collection("course")
 
-Meteor.subscription("allCourse",  function () {
-	return Course.find({userId: this.userId}, {})
-});
-
-Meteor.methods({
-    
-  saveCourse: function(course){
-    checkLogIn(this)
-    check(course.title, String)
-
-    if(hasId(course))
-	 	Course.update({_id: course._id, userId: this.userId}, {$set: {title: course.title, students: course.students}})
-    else
-      return Course.insert({termId: course.termId, userId: this.userId, title: course.title, students: course.students, days: []})
-  },
-  
-  saveCourseDescription: function(courseId, dayNumber, descriptionInfo){
-    var description = descriptionInfo.description
-    var gradeType = descriptionInfo.gradeType
-    checkLogIn(this)
-    var count = Course.update({_id: courseId, userId: this.userId, 'days.dayNumber': dayNumber}, {$set: {'days.$.description': description, 'days.$.gradeType': gradeType} })
-    if(count == 0)
-      Course.update({_id: courseId, userId: this.userId}, {$push: {'days': {dayNumber: dayNumber, description: description, 'gradeType': gradeType} } })
-  },
-  
-  saveCourseGrade: function(courseId, studentId, dayNumber, gradeText){
-    var gradeData = Course.calculateGradeData(gradeText)
-    checkLogIn(this)
-    var field = studentId
-    var obj = {}
-    obj['days.$.' + field] = gradeData
-    var count = Course.update({_id: courseId, userId: this.userId, 'days.dayNumber': dayNumber}, {$set: obj })
-    if(count == 0){
-      obj = {dayNumber: dayNumber}
-      obj[field] = gradeData
-      Course.update({_id: courseId, userId: this.userId}, {$push: {'days': obj } })
-    }
-  },
-  
-  deleteCourse: function(course){
-    checkLogIn(this)
-    
-    if(hasId(course))
-	 	Course.remove({_id: course._id, userId: this.userId})
+// DAO Methods
+Course.save = function(course){
+  if(hasId(course)){
+    Meteor.call('updateCourse', course)
+  }else{
+    course._id = Random.id()
+    Meteor.call('addCourse', course)
   }
-  
-})
+  return course._id
+}
+
+Course.delete = function(course){
+  Meteor.call('deleteCourse', course)
+}
 
 Course.setDescription = function(courseId, week, dow, descriptionInfo){
   var dayNumber = +dow + ((week - 1) * 7)
@@ -190,3 +157,62 @@ function getDescription(days, week, dayOfWeek){
   }
   return {}
 }
+
+// Collection
+Meteor.subscription("allCourse",  function () {
+	return Course.find({userId: this.userId}, {})
+});
+
+Meteor.methods({
+    
+  updateCourse: function(course){
+    checkLogIn(this)
+    check(course.title, String)
+
+    if(hasId(course))
+	 	Course.update({_id: course._id, userId: this.userId}, {$set: {title: course.title, students: course.students}})
+  },
+     
+  addCourse: function(course){
+    checkLogIn(this)
+    check(course.title, String)
+
+    if(hasId(course)){
+      validateId(course._id)
+      Course.insert({_id: course._id, termId: course.termId, userId: this.userId, title: course.title, students: course.students, days: []})
+    }else{
+      Course.insert({termId: course.termId, userId: this.userId, title: course.title, students: course.students, days: []})
+    }
+  },
+  
+  saveCourseDescription: function(courseId, dayNumber, descriptionInfo){
+    var description = descriptionInfo.description
+    var gradeType = descriptionInfo.gradeType
+    checkLogIn(this)
+    var count = Course.update({_id: courseId, userId: this.userId, 'days.dayNumber': dayNumber}, {$set: {'days.$.description': description, 'days.$.gradeType': gradeType} })
+    if(count == 0)
+      Course.update({_id: courseId, userId: this.userId}, {$push: {'days': {dayNumber: dayNumber, description: description, 'gradeType': gradeType} } })
+  },
+  
+  saveCourseGrade: function(courseId, studentId, dayNumber, gradeText){
+    var gradeData = Course.calculateGradeData(gradeText)
+    checkLogIn(this)
+    var field = studentId
+    var obj = {}
+    obj['days.$.' + field] = gradeData
+    var count = Course.update({_id: courseId, userId: this.userId, 'days.dayNumber': dayNumber}, {$set: obj })
+    if(count == 0){
+      obj = {dayNumber: dayNumber}
+      obj[field] = gradeData
+      Course.update({_id: courseId, userId: this.userId}, {$push: {'days': obj } })
+    }
+  },
+  
+  deleteCourse: function(course){
+    checkLogIn(this)
+    
+    if(hasId(course))
+	 	Course.remove({_id: course._id, userId: this.userId})
+  }
+  
+})
