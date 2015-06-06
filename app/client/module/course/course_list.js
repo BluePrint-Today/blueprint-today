@@ -64,8 +64,10 @@ Template.course_list.events({
   
   'click .dialog_box_delete': function(event){
     var selectedId = Session.get('list_panel')
-    Course.delete({_id: selectedId})
-    Template.dialog_box.close('#course_list_dialog')
+    if(confirm('This will delete all data associated with the course.')){
+      Course.delete({_id: selectedId})
+      Template.dialog_box.close('#course_list_dialog')
+    }
   }
   
 })

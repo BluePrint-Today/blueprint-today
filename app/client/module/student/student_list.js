@@ -38,8 +38,10 @@ Template.student_list.events({
   
   'click .dialog_box_delete': function(event){
     var selectedId = Session.get('list_panel')
-    Student.delete({_id: selectedId})
-    Template.dialog_box.close('#student_list_dialog')
+    if(confirm('This will delete all data for this student.')){
+      Student.delete({_id: selectedId})
+      Template.dialog_box.close('#student_list_dialog')
+    }
   }
   
 })
