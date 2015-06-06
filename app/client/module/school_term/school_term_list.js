@@ -55,8 +55,10 @@ Template.school_term_list.events({
   
   'click .dialog_box_delete': function(event){
     var selectedId = Session.get('list_panel')
-    SchoolTerm.delete({_id: selectedId})
-    Template.dialog_box.close('#school_term_dialog')
+    if(confirm('This will delete all data associated with the school term.')){
+      SchoolTerm.delete({_id: selectedId})
+      Template.dialog_box.close('#school_term_dialog')
+    }
   }
   
 })
