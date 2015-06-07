@@ -56,7 +56,7 @@ Template.grade_table.helpers({
       viewportColumnRenderingOffset: 15,
       fixedColumnsLeft: 2,
       colWidths: [60, 100, 60, 200, 60, 200, 60, 200, 60, 200, 60, 200, 60, 200, 60, 200],
-      colHeaders: ['', '<input id="selectWeek" readonly/>', 
+      colHeaders: ['<input id="selectWeek" readonly/>', '', 
                    '', 'Monday', 
                    '', 'Tuesday', 
                    '', 'Wednesday', 
