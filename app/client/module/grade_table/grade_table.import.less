@@ -1,4 +1,20 @@
 #gradebook-container{
   position: absolute;
   z-index: 1000;
+  
+  .group-header{
+    background-color: lightgray;
+    font-weight: bold;
+    height: 32px;
+    vertical-align: middle;
+  }
+  
+  .handsontable th:first-child{
+    overflow: visible;
+    border-right: none;
+    
+    input{
+      width: 120px;
+    }
+  }
 }

@@ -56,6 +56,7 @@ function updateProperties(instance){
 }
 
 function headerRenderer(instance, td, row, col, prop, value, cellProperties){
-  $(td).css('background-color', 'lightgray')
-  $(td).css('font-weight', 'bold')
+  $(td).addClass('group-header')
+  //$(td).css('background-color', 'lightgray')
+  //$(td).css('font-weight', 'bold')
 }
