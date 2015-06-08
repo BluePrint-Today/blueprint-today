@@ -1,4 +1,10 @@
 <template name="Gradebook">
+  {{# dialog_box id="student_add_course_dialog" heading="Add Course" }}
+    <div class="form-group">
+      <label>Student</label>
+    </div>
+  {{/ dialog_box}}
+  
   <div class="gradebook-page">
     {{> course_list }}
     <span class="command-bar">

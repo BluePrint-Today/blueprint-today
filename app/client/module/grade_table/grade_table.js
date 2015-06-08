@@ -146,7 +146,6 @@ function scrollHeaderFix(){
 function cellClick(e, coords, target){
   var col = coords.col
   var row = coords.row
-  console.log('cell clicked')
   
   // Header
   if(row < 0){
@@ -163,6 +162,15 @@ function cellClick(e, coords, target){
   
   // Grouping header
   if($(target).hasClass('group-header')){
+    
+    // Student click
+    if(col == 0){
+      console.log('clicked student name')
+      // Open student add course dialog
+      var data = this.getSourceDataAtRow(row)
+      Template.Gradebook.addCourse(data.studentId)
+    }
+    
     e.stopImmediatePropagation()
     return
   }

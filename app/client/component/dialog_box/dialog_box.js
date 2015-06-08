@@ -65,7 +65,11 @@ Template.dialog_box.helpers({
 
 // Accessors for outside dialog_box template
 Template.dialog_box.open = function(selector, modeVal, callback){
-  var box = Template.instance().$(selector)[0]
+  var box = null
+  if(Template.instance())
+    box = Template.instance().$(selector)[0]
+  else
+    box = $(selector)[0]
   var boxTI = Blaze.getView(box).templateInstance()
   boxTI.mode.set(modeVal)
   boxTI.openCallback = callback
