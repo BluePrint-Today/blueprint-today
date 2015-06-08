@@ -1,7 +1,8 @@
 <template name="Gradebook">
-  {{# dialog_box id="student_add_course_dialog" heading="Add Course" }}
+  {{# dialog_box id="student_add_course_dialog" heading="Add Course" data=studentCourse }}
     <div class="form-group">
       <label>Student</label>
+      <div>{{studentName}}</div>
     </div>
   {{/ dialog_box}}
   

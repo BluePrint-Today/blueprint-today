@@ -165,7 +165,6 @@ function cellClick(e, coords, target){
     
     // Student click
     if(col == 0){
-      console.log('clicked student name')
       // Open student add course dialog
       var data = this.getSourceDataAtRow(row)
       Template.Gradebook.addCourse(data.studentId)
