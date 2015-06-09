@@ -14,13 +14,28 @@ Template.Gradebook.events({
     Template.dialog_box.open('#course_list_manage_dialog')
   },
   
-  'click .dialog_box_save': function(event){
+  'change #student_add_course_dialog #courseStudents': function(event){
+    var val = $('#student_add_course_dialog #courseStudents').val()
+    if(val && val != ''){
+      $('#student_add_course_dialog #courseTitle').attr('disabled','disabled');
+    }else{
+      $('#student_add_course_dialog #courseTitle').removeAttr('disabled');
+    }
+  },
+  
+  'click #student_add_course_dialog .dialog_box_save': function(event){
+    var courseId = $('#student_add_course_dialog #courseStudents').val()
     var studentId = Template.instance().studentId.get()
-    var titleValue = Template.instance().$('#courseTitle')[0].value.trim()
+    var titleValue = Template.instance().$('#student_add_course_dialog #courseTitle')[0].value.trim()
     var selectedId = Session.get('list_panel')
     var termId = Session.get('current_term')
     if(titleValue.length > 0){
       Course.save({termId: termId, title: titleValue, students: [studentId]})
+      Template.dialog_box.close('#student_add_course_dialog')
+    }else if(courseId && courseId != ''){
+      var course = Course.findOne({_id: courseId})
+      course.students.push(studentId)
+      Course.save({_id: courseId, termId: course.termId, title: course.title, students: course.students})
       Template.dialog_box.close('#student_add_course_dialog')
     }
   }

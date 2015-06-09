@@ -63,4 +63,6 @@ function updateProperties(instance){
 
 function headerRenderer(instance, td, row, col, prop, value, cellProperties){
   $(td).addClass('group-header')
+  if(value)
+    td.innerHTML = value + '<span class="groupIcon"></span>'
 }
