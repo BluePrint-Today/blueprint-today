@@ -33,7 +33,13 @@ function updateProperties(instance){
           row: r,
           col: 0,
           rowspan: 1,
-          colspan: 16
+          colspan: 2
+        })
+        mergeCells.push({
+          row: r,
+          col: 2,
+          rowspan: 1,
+          colspan: 14
         })
         settings.cell.push({
           row: r,
@@ -43,7 +49,7 @@ function updateProperties(instance){
         })
         settings.cell.push({
           row: r,
-          col: 1,
+          col: 2,
           readOnly: true,
           renderer: headerRenderer
         })
@@ -57,6 +63,6 @@ function updateProperties(instance){
 
 function headerRenderer(instance, td, row, col, prop, value, cellProperties){
   $(td).addClass('group-header')
-  //$(td).css('background-color', 'lightgray')
-  //$(td).css('font-weight', 'bold')
+  if(value)
+    td.innerHTML = value + '<span class="groupIcon"></span>'
 }

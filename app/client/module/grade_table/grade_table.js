@@ -75,16 +75,10 @@ Template.grade_table.helpers({
       
       afterChange: updateData,
       afterRender: updateWeekDisplay,
-      afterScrollVertically: scrollHeaderFix
+      afterScrollVertically: scrollHeaderFix,
+      beforeOnCellMouseDown: cellClick,
+      templateInstance: Template.instance()
     }
-  }
-})
-
-Template.grade_table.events({
-  'click #selectWeek': function (e){
-    Template.instance().picker.open()
-    e.stopPropagation()
-    e.preventDefault()
   }
 })
 
@@ -146,5 +140,43 @@ function scrollHeaderFix(){
   }else{
     t.css({top: '0px'})
     c.css({top: '0px'})
+  }
+}
+
+function cellClick(e, coords, target){
+  var col = coords.col
+  var row = coords.row
+  
+  // Header
+  if(row < 0){
+    
+    // Week selector
+    if(col == 0 || col == 1){
+      var templateInstance = this.getSettings().templateInstance
+      setTimeout(templateInstance.picker.open, 500)
+    }
+    
+    e.stopImmediatePropagation()
+    return
+  }
+  
+  // Grouping header
+  if($(target).hasClass('group-header')){
+    
+    // Student click
+    if(col == 0){
+      // Open student add course dialog
+      var data = this.getSourceDataAtRow(row)
+      Template.Gradebook.addCourse(data.studentId)
+    }
+    
+    e.stopImmediatePropagation()
+    return
+  }
+  
+  // Frozen cols
+  if(col < 2){
+    e.stopImmediatePropagation()
+    return
   }
 }
