@@ -1,8 +1,17 @@
 <template name="Gradebook">
-  {{# dialog_box id="student_add_course_dialog" heading="Add Course" data=studentCourse }}
+  {{# dialog_box id="student_add_course_dialog" heading="Course"}}
     <div class="form-group">
-      <label>Student</label>
-      <div>{{studentName}}</div>
+      <label>Course</label>
+      <select id="courseStudents">
+        <option value="" selected>New</option>
+        {{#each courses}}
+          <option value="{{_id}}">{{title}}</option>
+        {{/each}}
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Title</label>
+      <input id="courseTitle" class="autoFocus" type="text"/>
     </div>
   {{/ dialog_box}}
   
