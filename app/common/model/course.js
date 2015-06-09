@@ -37,7 +37,8 @@ Course.getSchedule = function(termId, week){
     
     var courseGroup = {
       grade: student.name,
-      _header: true
+      _header: true,
+      studentId: student._id
     }
     schedule.push(courseGroup)
     
