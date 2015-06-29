@@ -11,7 +11,6 @@ function sendPageView(page){
 }
 
 Router.route('/', function () {
-  sendPageView('/')
   this.render('Main')
 })
 
