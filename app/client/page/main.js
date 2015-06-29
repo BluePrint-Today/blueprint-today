@@ -17,6 +17,8 @@ Template.Main.rendered = function(){
        }
      })
    })  
+   
+   sendPageView("/")
 }
 
 Template.Main.destroyed = function(){
@@ -29,6 +31,7 @@ Template.Main.destroyed = function(){
 
 Template.Main.events({
   'click #sign_up': function(e){
+    sendPageEvent('sign_up', 'clicked')
     $('#login-dropdown-list').addClass('open')
     e.preventDefault()
     return false;

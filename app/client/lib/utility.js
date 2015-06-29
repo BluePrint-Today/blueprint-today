@@ -11,3 +11,16 @@ Template.defaultProperty = function(object, name, defautlValue){
     object.data[name] = defautlValue
   }
 }
+
+sendPageView = function (page){
+  if(typeof ga != 'undefined'){
+    ga('set', 'page', page)
+    ga('send', 'pageview')
+  }
+}
+
+sendPageEvent = function(target, event){
+  if(typeof ga != 'undefined'){
+    ga('send', 'event', target, event)
+  }
+}
