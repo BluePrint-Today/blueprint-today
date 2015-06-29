@@ -1,30 +1,42 @@
 
 Router.configure({
-  layoutTemplate: 'ApplicationLayout',
-  trackPageView: true
+  layoutTemplate: 'ApplicationLayout'
 })
 
+function sendPageView(page){
+  if(typeof ga != 'undefined'){
+    ga('set', 'page', page)
+    ga('send', 'pageview')
+  }
+}
+
 Router.route('/', function () {
+  sendPageView('/')
   this.render('Main')
 })
 
 Router.route('/faqs', function () {
+  sendPageView('/faqs')
   this.render('Faqs')
 })
 
 Router.route('/terms', function () {
+  sendPageView('/terms')
   this.render('Terms')
 })
 
 Router.route('/privacy', function () {
+  sendPageView('/privacy')
   this.render('Privacy')
 })
 
 Router.route('/home', function () {
+  sendPageView('/home')
   this.render('Home')
 })
 
 Router.route('/gradebook', function () {
+  sendPageView('/gradebook')
   this.render('Gradebook')
 })
 
