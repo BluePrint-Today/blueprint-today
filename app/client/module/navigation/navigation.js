@@ -3,13 +3,6 @@ Router.configure({
   layoutTemplate: 'ApplicationLayout'
 })
 
-function sendPageView(page){
-  if(typeof ga != 'undefined'){
-    ga('set', 'page', page)
-    ga('send', 'pageview')
-  }
-}
-
 Router.route('/', function () {
   this.render('Main')
 })
