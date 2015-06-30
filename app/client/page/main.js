@@ -32,8 +32,10 @@ Template.Main.destroyed = function(){
 Template.Main.events({
   'click #sign_up': function(e){
     sendPageEvent('sign_up', 'clicked')
+    $('.navbar-collapse').collapse('show')
     $('#login-dropdown-list').addClass('open')
     e.preventDefault()
+    e.stopPropagation()
     return false;
   },
   
