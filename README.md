@@ -1,16 +1,13 @@
 # BluePrint Today #
 
-<a href="https://assembly.com/blueprint-today/bounties?utm_campaign=assemblage&utm_source=blueprint-today&utm_medium=repo_badge"><img src="https://asm-badger.herokuapp.com/blueprint-today/badges/tasks.svg" height="24px" alt="Open Tasks" /></a>
-
-[![alt](https://codenvy.com/factory/resources/factory-white.png)] (https://codenvy.com/f?id=ynpkoh9s0vjc3k4o)
+[![alt](https://codenvy.com/factory/resources/factory-white.png)] (https://codenvy.com/f?id=3z9ajzy2artzvjn9)
 
 
 ## Homeschool scheduling and grade tracking application
-This is a product being built by the Assembly community. You can help push this idea forward by visiting [https://assembly.com/blueprint-today](https://assembly.com/blueprint-today).
 
 ### How to contribute to the project ###
 * Running application
-    1. Launch [Blueprint Workspace](https://codenvy.com/f?id=ynpkoh9s0vjc3k4o)
+    1. Launch [Blueprint Workspace](https://codenvy.com/f?id=3z9ajzy2artzvjn9)
     1. Click top right button to persist temp workspace to your account so you can access it again at a later time
     1. Click run button to build and launch Docker runner
     1. Click docker application url once build is complete
