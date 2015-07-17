@@ -7,7 +7,7 @@
 
 ### How to contribute to the project ###
 * Running application
-    1. Launch [Blueprint Workspace](https://codenvy.com/f?id=ynpkoh9s0vjc3k4o)
+    1. Launch [Blueprint Workspace](https://codenvy.com/f?id=3z9ajzy2artzvjn9)
     1. Click top right button to persist temp workspace to your account so you can access it again at a later time
     1. Click run button to build and launch Docker runner
     1. Click docker application url once build is complete
