@@ -20,6 +20,8 @@
     * Adding Meteor packages has to be done by hand in app/.meteor/packages or in the Docker configuration
     * URL changes with each run so default development runner sets up application to use email login instead of Google or Facebook which is what will be used in production
 
+Using [zenhub](http://zhb.io/chrome) to manage github issues
+
 ### Accessing Mongo DB ###
 
 1. Run application
