@@ -6,6 +6,13 @@
 ## Homeschool scheduling and grade tracking application
 
 ### How to contribute to the project ###
+
+We use Codenvy for our development platform. Instantly be ready to start coding. Easy to create pull requests when your task is done.
+
+[See how easy it is to get started](http://youtu.be/uF_QCmq5SQA)
+
+Prefer everyone work in Codenvy and do pull requests from there - but if you choose to run from your own local box make sure you run with meteor --release 1.0.2.1 because that is the current release we are sticking to. We will upgrade versions but for product stability it won't be as often as Meteor releases.
+
 * Running application
     1. Launch [Blueprint Workspace](https://codenvy.com/f?id=3z9ajzy2artzvjn9)
     1. Click top right button to persist temp workspace to your account so you can access it again at a later time
