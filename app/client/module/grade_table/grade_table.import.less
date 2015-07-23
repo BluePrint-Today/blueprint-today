@@ -2,7 +2,11 @@
   position: absolute;
   z-index: 1000;
   
-  .group-header{
+  table{
+    background-color: lightgray;
+  }
+  
+  .group-header td{
     background-color: lightgray;
     font-weight: bold;
     height: 32px;
@@ -23,6 +27,72 @@
     
     input{
       width: 120px;
+    }
+  }
+  
+ 
+  @media screen{
+    // hide group header cols on screen
+    .group-header td:nth-child(1n+2){
+      display: none;
+    }
+  }
+  
+  @media print{
+    .handsontable {
+      // fix size
+      table{
+        table-layout: auto;
+        width: 1400px;
+      }
+      
+      td{
+        width: 200px;
+        font-size: 10pt;
+      }
+      
+      // hide ovrerlays
+      .ht_clone_top, .ht_clone_left, .ht_clone_corner{
+        display: none;
+      } 
+      
+      // hide header
+      thead{
+        display: none;
+      }
+
+      // hide grade columns
+      td:nth-child(2n+3){
+        display: none;
+      }
+      
+      td:first-child{
+        visibility: hidden;
+        width: 0px;
+      }
+      
+      .group-header{
+        td{
+          border: 0;
+          border-bottom: medium solid;
+          padding-top: 30px;
+        }
+        
+        .groupIcon{
+          display:none
+        }
+        
+        
+        td:first-child{
+          visibility: visible;
+        }
+        
+      }
+      
+      // hide weekend columns
+      td:nth-child(1n+13){
+        display:none;
+      }
     }
   }
 }
