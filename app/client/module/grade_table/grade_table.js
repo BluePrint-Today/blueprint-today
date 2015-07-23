@@ -161,7 +161,7 @@ function cellClick(e, coords, target){
   }
   
   // Grouping header
-  if($(target).hasClass('group-header')){
+  if($(target).parent().hasClass('group-header')){
     
     // Student click
     if(col == 0){

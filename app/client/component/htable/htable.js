@@ -35,24 +35,26 @@ function updateProperties(instance){
           rowspan: 1,
           colspan: 2
         })
-        mergeCells.push({
-          row: r,
-          col: 2,
-          rowspan: 1,
-          colspan: 14
-        })
-        settings.cell.push({
-          row: r,
-          col: 0,
-          readOnly: true,
-          renderer: headerRenderer
-        })
-        settings.cell.push({
-          row: r,
-          col: 2,
-          readOnly: true,
-          renderer: headerRenderer
-        })
+        //mergeCells.push({
+          //row: r,
+          //col: 2,
+          //rowspan: 1,
+          //colspan: 14
+        //})
+        for(c = 0; c < 16; c++){
+          settings.cell.push({
+            row: r,
+            col: c,
+            readOnly: true,
+            renderer: headerRenderer
+          })
+        }
+        //settings.cell.push({
+          //row: r,
+          //col: 2,
+          //readOnly: true,
+          //renderer: headerRenderer
+        //})
       }
     }
     if(data.length > 0){
@@ -62,7 +64,12 @@ function updateProperties(instance){
 }
 
 function headerRenderer(instance, td, row, col, prop, value, cellProperties){
-  $(td).addClass('group-header')
-  if(value)
+  if(row == 0){
+    $(td).parent().parent().find('tr').removeClass('group-header')
+  }
+  $(td).parent().addClass('group-header')
+  if(col == 0 && value)
     td.innerHTML = value + '<span class="groupIcon"></span>'
+  else if(value)
+    td.innerHTML = value
 }
