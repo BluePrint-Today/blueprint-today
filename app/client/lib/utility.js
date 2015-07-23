@@ -12,6 +12,12 @@ Template.defaultProperty = function(object, name, defautlValue){
   }
 }
 
+// Fix for older JavaScript
+Number.isFinite = Number.isFinite || function(value) {
+    return typeof value === "number" && isFinite(value);
+}
+
+// Analytics
 sendPageView = function (page){
   if(typeof ga != 'undefined'){
     ga('set', 'page', page)
