@@ -40,16 +40,20 @@
   
   @media print{
     .handsontable {
-      // fix size
+      // fix sizes
+      div{
+        width: 100% !important;
+      }
+      
       table{
         table-layout: auto;
-        width: 800pt;
+        width: 100%;
       }
       
       td{
         width: 200pt;
-        font-size: 10pt;
-        height: 10pt;
+        font-size: 6pt;
+        height: 8pt;
       }
       
       // hide ovrerlays
