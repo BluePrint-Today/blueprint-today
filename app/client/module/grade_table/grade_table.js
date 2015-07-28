@@ -10,8 +10,8 @@ Template.grade_table.rendered = function(){
   var e= moment(s).add(52, 'week').add(-1, 'day')
   
   this.picker = this.$('#scheduleWeekSelect').pickadate({
-     min: new Date(s.format('MM-DD-YYYY')),
-     max: new Date(e.format('MM-DD-YYYY')),
+     min: new Date(s.format('MM/DD/YYYY')),
+     max: new Date(e.format('MM/DD/YYYY')),
      selectMonths: true,
      selectYears: true,
      firstDay: 1,
@@ -35,7 +35,7 @@ Template.grade_table.rendered = function(){
   // Set initial starting point when first rendering
   var c = moment.max(moment(), s)
   var c = moment.min(c, e)
-  var d = new Date(c.format('MM-DD-YYYY'))
+  var d = new Date(c.format('MM/DD/YYYY'))
   this.picker.set('select', d)
 }
 
