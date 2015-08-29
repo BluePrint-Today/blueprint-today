@@ -38,68 +38,65 @@
     .group-header td:nth-child(1n+2){
       display: none;
     }
+    
+    #table-printable{
+      display: none;
+    }
   }
   
   @media print{
-    .handsontable {
-      // fix sizes
-      div{
-        width: 100% !important;
-      }
+    position: relative;
+    
+    #table-container{
+      display: none;
+    }
+    
+    #table-printable{
+      display: table;
       
-      table{
-        table-layout: auto;
-        width: 100%;
-      }
-      
-      td{
-        width: 200pt;
-        font-size: 6pt;
-        height: 8pt;
-      }
-      
-      // hide ovrerlays
-      .ht_clone_top, .ht_clone_left, .ht_clone_corner{
-        display: none;
-      } 
-      
-      // hide header
-      thead{
-        display: none;
-      }
+      table-layout: auto;
+      width: 100%;
 
-      // hide grade columns
-      td:nth-child(2n+3){
-        display: none;
-      }
-      
-      td:first-child{
-        visibility: hidden;
-        width: 0px;
-      }
-      
-      .group-header{
+      tbody{
+        display: block;
+        page-break-inside: avoid;
+
         td{
           border: 0;
-          border-bottom: medium solid;
-          padding-top: 30px;
+          border-bottom: 1px solid gray;
+          border-right: 1px solid gray;
         }
         
-        .groupIcon{
-          display:none
+        tr:nth-of-type(even) td{
+          background-color: #eeeeee!important;
         }
         
-        
-        td:first-child{
-          visibility: visible;
+        .group-header{
+          td{
+            border: 0;
+            border-bottom: medium solid;
+            padding-top: 30px;
+          }
         }
-        
-      }
-      
-      // hide weekend columns
-      td:nth-child(1n+13){
-        display:none;
       }
     }
+  }
+  
+  @media print and (orientation: portrait){
+         td{
+          width: 200pt;
+          font-size: 6pt;
+          height: 8pt;
+          padding: 2px;
+        }
+  }
+    
+  @media print and (orientation: landscape){
+         td{
+          width: 300pt;
+          font-size: 10pt;
+          height: 14pt;
+          padding: 2px;
+        }
   }
 }
