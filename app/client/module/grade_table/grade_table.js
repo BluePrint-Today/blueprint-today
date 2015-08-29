@@ -77,7 +77,8 @@ Template.grade_table.helpers({
       afterRender: updateWeekDisplay,
       afterScrollVertically: scrollHeaderFix,
       beforeOnCellMouseDown: cellClick,
-      templateInstance: Template.instance()
+      templateInstance: Template.instance(),
+      printableColumns: ['title', 'd1.description', 'd2.description', 'd3.description', 'd4.description', 'd5.description']
     }
   }
 })
@@ -91,7 +92,10 @@ function updateWeekDisplay(){
     var display = start.format('MM/DD') + ' - '
     start.add(6, 'days')
     display = display + start.format('MM/DD')
-    $('#gradebook-container th input').val(display)
+    
+    setTimeout(function(){
+      $('#gradebook-container .ht_clone_corner th input').val(display)
+    }, 2000)
 }
 
 function updateData(change, source){
