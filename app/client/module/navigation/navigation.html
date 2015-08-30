@@ -17,11 +17,12 @@
        <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li id="featuresTab"><a href="/#features">Features</a></li>
-            <li id="aboutTab"><a href="/#about">Get Started</a></li>
+            <li id="startTab"><a href="/#start">Get Started</a></li>
             <li id="videoTab"><a href="/#video">Video</a></li>
             <li id="faqTab"><a href="{{ pathFor 'faqs' }}" >FAQs</a></li>
+            <li id="aboutTab"><a href="{{ pathFor 'about' }}" >About</a></li>
           {{#if currentUser}}
-            <li id="homeTab"><a href="home">Home</a></li>
+            <li id="homeTab"><a href="home">School Home</a></li>
           {{/if}}
           </ul>
           <ul class="nav navbar-nav navbar-right">

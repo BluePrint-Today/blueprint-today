@@ -12,6 +12,11 @@ Router.route('/faqs', function () {
   this.render('Faqs')
 })
 
+Router.route('/about', function () {
+  sendPageView('/about')
+  this.render('About')
+})
+
 Router.route('/terms', function () {
   sendPageView('/terms')
   this.render('Terms')
@@ -38,7 +43,7 @@ Router.onBeforeAction(function () {
   } else {
     this.next()
   }
-}, {except: ["Main", "faqs", "terms", "privacy"]})
+}, {except: ["Main", "faqs", "about", "terms", "privacy"]})
 
 
 Template.mainNavigation.events({
