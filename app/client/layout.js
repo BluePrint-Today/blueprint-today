@@ -9,10 +9,20 @@ Meteor.startup(function () {
         $(this).closest(".navbar-collapse").collapse('hide');
     })
     
+    var signingIn = false;
+    
     Tracker.autorun(function(){
+      if(Meteor.loggingIn()){
+        signingIn = true;
+      }
+      
+      var isRootPath = window.location.pathname == "/" && window.location.hash == ""
       if(Meteor.userId()){
-        $('.navbar-collapse').collapse('hide')
-        Router.go("/home")
+        // if signing in or we are already signed in and hitting the root path
+        if(signingIn || isRootPath){
+          $('.navbar-collapse').collapse('hide')
+          Router.go("/home")
+        }
       }
     })
 })
