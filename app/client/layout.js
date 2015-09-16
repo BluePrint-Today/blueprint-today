@@ -1,4 +1,5 @@
 Meteor.startup(function () {
+    var clientStarted = moment()
   //IronRouterAutoscroll.animationDuration = 800
   
     // close moble nav bar when item click
@@ -12,7 +13,8 @@ Meteor.startup(function () {
     var signingIn = false;
     
     Tracker.autorun(function(){
-      if(Meteor.loggingIn()){
+      // If less than 2 sec then not really signing in
+      if(Meteor.loggingIn() && moment().diff(clientStarted) > 2000){
         signingIn = true;
       }
       
