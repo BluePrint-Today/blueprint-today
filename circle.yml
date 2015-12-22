@@ -1,3 +1,8 @@
+general:
+  branches:
+    only:
+      - master
+      - production
 deployment:
   test:
     branch: master
